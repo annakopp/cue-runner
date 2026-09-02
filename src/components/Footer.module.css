@@ -1,0 +1,39 @@
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: clamp(7px, 1.2vh, 12px) 26px;
+  border-top: 1px solid var(--border);
+  flex: none;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--text-faint);
+}
+
+.btn {
+  border: 1px solid var(--border-ctl);
+  padding: 8px 14px;
+  cursor: pointer;
+  user-select: none;
+  color: var(--text-mid);
+  background: none;
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+.btn:hover {
+  color: var(--text-hi);
+  border-color: var(--border-ctl-hi);
+}
+
+.spacer {
+  flex: 1;
+}
+
+.legend {
+  white-space: nowrap;
+}
+
+.fileInput {
+  display: none;
+}

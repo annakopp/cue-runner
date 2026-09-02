@@ -1,0 +1,83 @@
+:root {
+  --bg-page: #0c0d0e;
+  --bg-card: #101112;
+  --bg-strip: #0e0f10;
+  --bg-strip-standby: oklch(0.62 0.12 60 / 0.1);
+  --bg-block: #1c1f21;
+  --bg-chip: #262a2d;
+  --bg-input: #131517;
+  --bg-row-hover: #131517;
+  --bg-row-now: oklch(0.75 0.16 145 / 0.09);
+
+  --border: #23262a;
+  --border-row: #1a1d1f;
+  --border-ctl: #2e3237;
+  --border-ctl-hi: #5c6167;
+  --border-block: #3a3f45;
+
+  --text-hi: #e8e3d6;
+  --text: #b9b3a8;
+  --text-mid: #8a8378;
+  --text-dim: #6b7076;
+  --text-faint: #5c6167;
+  --text-past: #4e5359;
+  --text-past-dim: #3f4348;
+
+  --go: oklch(0.75 0.16 145);
+  --standby: oklch(0.86 0.11 75);
+  --scene: oklch(0.82 0.09 65);
+  --hold: oklch(0.42 0.13 25);
+  --run: oklch(0.4 0.1 145);
+
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-narrow: "Archivo Narrow", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: var(--bg-page);
+}
+
+body {
+  font-family: var(--font-mono);
+  color: var(--text);
+}
+
+#root {
+  height: 100%;
+}
+
+input {
+  font: inherit;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--border-ctl-hi) !important;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-page);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-ctl);
+}

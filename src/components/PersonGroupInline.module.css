@@ -1,0 +1,36 @@
+.group {
+}
+
+.header {
+  font-size: 12px;
+  color: var(--text-mid);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  font-size: 15px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.itemEmoji {
+  font-size: 19px;
+  line-height: 1;
+}

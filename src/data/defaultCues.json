@@ -1,0 +1,25 @@
+{
+  "film": "The Fellowship of the Ring",
+  "runtime": "02:58:00",
+  "cues": [
+    { "timestamp": "00:08:45", "action": "shake chair", "scene": "Frodo jumps in wagon", "item": "🪑 chair", "category": "furniture", "who": "Matt" },
+    { "timestamp": "00:10:00", "action": "spray woodsy perfume", "scene": "shire vibes", "item": "🧴 woodsy perfume", "category": "misc", "who": "Anna Kopp" },
+    { "timestamp": "00:10:56", "action": "light sparkler", "scene": "kid fireworks", "item": "✨ sparkler", "category": "lighting, fire and wind", "who": "Andrey" },
+    { "timestamp": "00:12:57", "action": "smack (gently) w/ pool noodle", "scene": "gandalf hits chandelier", "item": "〰️ pool noodle", "category": "human", "who": "Ben" },
+    { "timestamp": "00:13:04", "action": "smack (harder) w/ pool noodle", "scene": "gandalf hits head", "item": "〰️ pool noodle", "category": "human", "who": "Ben" },
+    { "timestamp": "00:13:32", "action": "serve sponge cake", "scene": "sponge cake", "item": "🍰 sponge cake", "category": "food & drink", "who": "Ben" },
+    { "timestamp": "00:14:07", "action": "serve first cup of tea", "scene": "", "item": "🍵 tea", "category": "food & drink", "who": "Ben" },
+    { "timestamp": "00:15:33", "action": "light and pass joint, one puff then take back", "scene": "bilbo & gandalf smoking", "item": "🌿 weed", "category": "lighting, fire and wind", "who": "Andrey" },
+    { "timestamp": "00:22:38", "action": "", "scene": "tall/scary/shadow gandalf", "item": "", "category": "", "who": "" },
+    { "timestamp": "00:44:45", "action": "carrot snack", "scene": "", "item": "🥕 carrot", "category": "food & drink", "who": "Ben" },
+    { "timestamp": "01:02:10", "action": "spray water mist over the room", "scene": "Bucklebury Ferry", "item": "💧 spray bottle", "category": "wet", "who": "Anna Green" },
+    { "timestamp": "01:18:52", "action": "fan on full + flicker the flashlight", "scene": "Weathertop wind", "item": "🌬 small electric fan, 🔦 color changing flashlight", "category": "lighting, fire and wind", "who": "Andrey" },
+    { "timestamp": "02:33:10", "action": "strobe + fan + orange light + magnet-pull ring + Sauron dialog via headphones, cut abruptly when ring comes off", "scene": "Frodo sits on Amon Hen wearing the ring", "item": "🌬 small electric fan, 🔦 color changing flashlight, 🧲 magnet, 💍 ring (magnetable)", "category": "lighting, fire and wind/ring", "who": "Andrey/Anna Green",
+      "groups": [
+        { "who": "Andrey", "category": "lighting, fire and wind", "items": ["🌬 small electric fan", "🔦 color changing flashlight"] },
+        { "who": "Anna Green", "category": "ring", "items": ["🧲 magnet", "💍 ring (magnetable)"] }
+      ]
+    },
+    { "timestamp": "02:35:20", "action": "give Sid a play sword, sword fight 1-2 people", "scene": "Aragorn fights the Uruk Hai", "item": "⚔️ plastic sword", "category": "fighting", "who": "Ben" }
+  ]
+}

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Archivo+Narrow:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Spectral:ital,wght@0,400;0,500;1,400&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#0a0908; }
+  a { color:#c8a24a; text-decoration:none; }
+  a:hover { color:#e6c375; }
+  input { font: inherit; }
+  input:focus { outline:none; }
+</style>
+</helmet>
+
+<section style="display:flex; flex-direction:column; gap:28px; padding:48px 48px 8px; font-family:'Space Grotesk',Helvetica,sans-serif;">
+  <div style="display:flex; align-items:baseline; gap:16px; color:#8a8378;">
+    <div style="font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:.18em; color:#c8a24a;">TURN 2</div>
+    <div style="font-size:14px;">Prompt book, revised — cue IDs out, <b style="color:#c8a24a; font-weight:600;">scene</b> in their place; full transport; two-line rows for readability.</div>
+  </div>
+
+  <div id="2a" style="display:flex; flex-direction:column; gap:14px;">
+    <div style="display:flex; align-items:center; gap:12px;">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:.14em; color:#0a0908; background:#c8a24a; padding:5px 9px; border-radius:3px;">2A</div>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.16em; color:#7d766c;">THE PROMPT BOOK v2 — SCENE-LED</div>
+    </div>
+
+    <div style="width:880px; background:#0c0d0e; border:1px solid #23262a; font-family:'IBM Plex Mono',monospace; color:#b9b3a8;">
+
+      <!-- transport -->
+      <div style="display:flex; align-items:center; gap:22px; padding:18px 24px; border-bottom:1px solid #23262a;">
+        <div>
+          <div style="font-size:10px; letter-spacing:.24em; color:#6b7076; margin-bottom:6px;">SHOW TIME</div>
+          <div style="font-size:38px; font-weight:600; color:#e8e3d6; line-height:1;">{{ clock }}</div>
+        </div>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <div onClick="{{ back5 }}" style="border:1px solid #2e3237; padding:11px 14px; font-size:13px; color:#b9b3a8; cursor:pointer;" style-hover="border-color:#5c6167; color:#e8e3d6">−5s</div>
+          <div onClick="{{ toggle }}" style="display:flex; align-items:center; gap:9px; padding:11px 24px; font-size:13px; letter-spacing:.16em; color:#e8e3d6; cursor:pointer; background:{{ transportBg }};" style-hover="filter:brightness(1.25)"><span style="font-size:12px; line-height:1;">{{ transportGlyph }}</span><span>{{ transportLabel }}</span></div>
+          <div onClick="{{ fwd5 }}" style="border:1px solid #2e3237; padding:11px 14px; font-size:13px; color:#b9b3a8; cursor:pointer;" style-hover="border-color:#5c6167; color:#e8e3d6">+5s</div>
+          <div onClick="{{ reset }}" style="border:1px solid #2e3237; padding:11px 14px; font-size:13px; color:#8a8378; cursor:pointer;" style-hover="border-color:#5c6167; color:#e8e3d6">RESET</div>
+        </div>
+        <div style="flex:1;"></div>
+        <div>
+          <div style="font-size:10px; letter-spacing:.24em; color:#6b7076; margin-bottom:6px;">SYNC TO FILM</div>
+          <input type="text" value="{{ syncText }}" onChange="{{ onSync }}" style="width:132px; background:#131517; border:1px solid #2e3237; color:#e8e3d6; font-family:'IBM Plex Mono',monospace; font-size:18px; padding:7px 10px; letter-spacing:.06em; text-align:center;">
+        </div>
+      </div>
+
+      <!-- NOW: scene leads -->
+      <div style="padding:26px 24px; border-bottom:1px solid #23262a; background:#101112;">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div style="font-size:10px; letter-spacing:.22em; color:oklch(0.75 0.16 145);">GO — RUNNING NOW</div>
+          <div style="font-size:12px; color:#8a8378;">00:44:45</div>
+          <div style="font-size:12px; color:oklch(0.75 0.16 145);">+{{ elapsed }}</div>
+          <div style="flex:1;"></div>
+          <div style="font-size:12px; letter-spacing:.16em; color:#e8e3d6; border:1px solid oklch(0.75 0.16 145 / 0.55); background:oklch(0.75 0.16 145 / 0.12); padding:9px 20px; cursor:pointer;" style-hover="background:oklch(0.75 0.16 145 / 0.24)">✓ DONE</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr auto; gap:32px; align-items:start; margin-top:14px;">
+          <div>
+            <div style="font-family:'Archivo Narrow',sans-serif; font-size:22px; font-weight:500; letter-spacing:.04em; color:oklch(0.82 0.09 65);">the hobbits stop to eat</div>
+            <div style="font-family:'Archivo Narrow',sans-serif; font-size:52px; font-weight:600; line-height:1.02; color:#e8e3d6; margin-top:6px; text-wrap:pretty;">Carrot snack</div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:10px; min-width:250px;">
+            <div style="background:#1c1f21; border:1px solid #3a3f45;">
+              <div style="display:flex; align-items:baseline; gap:9px; padding:9px 14px; border-bottom:1px solid #3a3f45;">
+                <span style="font-family:'Archivo Narrow',sans-serif; font-size:22px; font-weight:700; color:#e8e3d6; line-height:1;">Ben</span>
+                <span style="font-size:10px; letter-spacing:.16em; color:#7d858c;"><span style="display:inline-block; width:7px; height:7px; border-radius:50%; background:oklch(0.75 0.13 140); margin-right:7px; vertical-align:middle;"></span>FOOD &amp; DRINK</span>
+              </div>
+              <div style="display:flex; flex-wrap:wrap; gap:8px; padding:12px 14px;">
+                <div style="display:flex; align-items:center; gap:9px; background:#262a2d; padding:6px 12px 6px 9px;">
+                  <span style="font-size:23px; line-height:1;">🥕</span>
+                  <span style="font-family:'Archivo Narrow',sans-serif; font-size:19px; font-weight:600; color:#e8e3d6;">carrot</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STANDBY: same grid as the table -->
+      <div style="border-bottom:1px solid #23262a; background:oklch(0.62 0.12 60 / 0.07);">
+        <div style="display:flex; align-items:baseline; gap:10px; padding:12px 24px 4px;">
+          <div style="font-size:10px; letter-spacing:.22em; color:oklch(0.82 0.11 70);">STANDBY</div>
+        </div>
+        <div style="display:grid; grid-template-columns:96px 1fr 250px; gap:16px; padding:6px 24px 16px; font-size:14px; color:#e8e3d6; align-items:start;">
+          <div>
+            <div style="font-size:13px; letter-spacing:.16em; color:#8a8378; margin-bottom:4px;">IN</div>
+            <div style="font-size:26px; font-weight:600; color:oklch(0.86 0.11 75); line-height:1.05;">{{ countdown }}</div>
+          </div>
+          <div>
+            <div style="font-size:13px; color:#8a8378; margin-bottom:4px;">Bucklebury Ferry</div>
+            <div style="font-size:17px; font-weight:500;">Spray water mist over the room</div>
+          </div>
+          <div>
+            <div style="font-size:12px; color:#8a8378; margin-bottom:4px;"><span style="display:inline-block; width:7px; height:7px; border-radius:50%; background:oklch(0.72 0.11 235); margin-right:7px; vertical-align:middle;"></span>Anna Green · WET</div>
+            <div style="display:flex; align-items:center; gap:6px; font-size:15px;"><span style="font-size:19px; line-height:1;">💧</span>spray bottle</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LIST: two-line rows, no Q column -->
+      <div style="max-height:440px; overflow-y:auto; scrollbar-color:#3a3f45 #0c0d0e;">
+        <div style="position:sticky; top:0; z-index:2; display:grid; grid-template-columns:96px 1fr 250px; gap:16px; padding:10px 24px; border-bottom:1px solid #23262a; font-size:10px; letter-spacing:.2em; color:#5c6167; background:#0c0d0e;">
+          <div>TC</div><div>SCENE · CUE</div><div style="color:#8a8378;">WHO · ITEMS</div>
+        </div>
+        <div style="display:grid; grid-template-columns:96px 1fr 250px; gap:16px; padding:14px 24px; border-bottom:1px solid #1a1d1f; font-size:14px; color:#4e5359;">
+          <div>00:08:45</div>
+          <div><div style="font-size:13px; color:#3f4348; margin-bottom:4px;">Frodo jumps in wagon</div><div style="font-size:16px;">Shake chair</div></div>
+          <div><div style="font-size:12px; letter-spacing:.04em; color:#3f4348; margin-bottom:4px;"><span style="display:inline-block; width:7px; height:7px; border-radius:50%; background:oklch(0.72 0.1 195); margin-right:7px; vertical-align:middle;"></span>Matt · FURNITURE</div>
+            <div style="display:flex; flex-wrap:wrap; gap:6px 14px; font-size:15px; color:#4e5359;"><span style="display:flex; align-items:center; gap:6px;"><span style="font-size:19px; line-height:1;">🪑</span>chair</span></div></div>
+        </div>
+        <div style="display:grid; grid-template-columns:96px 1fr 250px; gap:16px; padding:14px 24px; border-bottom:1px solid #1a1d1f; font-size:14px; color:#4e5359;">
+          <div>00:15:33</div>
+          <div><div style="font-size:13px; color:#3f4348; margin-bottom:4px;">Bilbo &amp; Gandalf smoking</div><div style="font-size:16px; text-wrap:pretty;">Light and pass joint, one puff then take back</div></div>
+          <div><div style="font-size:12px; letter-spacing:.04em; color:#3f4348; margin-bottom:4px;"><span style="display:inline-block; width:7px; height:7px; border-radius:50%; background:oklch(0.82 0.12 75); margin-right:7px; vertical-align:middle;"></span>Andrey · LIGHTING, FIRE &amp; WIND</div>
+            <div style="display:flex; flex-wrap:wrap; gap:6px 14px; font-size:15px; color:#4e5359;"><span style="display:flex; align-items:center; gap:6px;"><span style="font-size:19px; line-height:1;">🌿</span>weed</span></div></div>
+        </div>
+        <div style="display:grid; grid-template-columns:96px 1fr 250px; gap:16px; padding:14px 24px; border-bottom:1px solid #1a1d1f; font-size:14px; color:#4e5359;">
+          <div>00:22:38</div>
+          <div><div style="font-size:13px; color:#3f4348; margin-bottom:4px;">tall / scary / shadow Gandalf</div><div style="font-size:16px; font-style:italic; color:#3f4348;">watch only</div></div>
+          <div style="font-size:12px; color:#3f4348;">unassigned</div>
+        </div>
+        <div style="display:grid; grid-template-columns:96px 1fr 250px; gap:16px; padding:16px 24px 16px 21px; border-bottom:1px solid #23262a; border-left:3px solid oklch(0.75 0.16 145); font-size:14px; background:oklch(0.75 0.16 145 / 0.09); color:#e8e3d6;">
+          <div style="font-weight:600;">00:44:45</div>
+          <div><div style="font-size:13px; color:#8a8378; margin-bottom:4px;">the hobbits stop to eat</div><div style="font-size:17px; font-weight:600;">Carrot snack</div></div>
+          <div><div style="font-size:12px; color:#8a8378; margin-bottom:4px;"><span style="display:inline-block; width:7px; height:7px; border-radius:50%; background:oklch(0.75 0.13 140); margin-right:7px; vertical-align:middle;"></span>Ben · FOOD &amp; DRINK</div><div style="display:flex; align-items:center; gap:6px; font-size:15px; font-weight:600;"><span style="font-size:19px; line-height:1;">🥕</span>carrot</div></div>
+        </div>
+        <div style="display:grid; grid-template-columns:96px 1fr 250px; gap:16px; padding:14px 24px; border-bottom:1px solid #1a1d1f; font-size:14px; color:#b9b3a8;">
+          <div>01:02:10</div>
+          <div><div style="font-size:13px; color:#6b7076; margin-bottom:4px;">Bucklebury Ferry</div><div style="font-size:16px;">Spray water mist over the room</div></div>
+          <div><div style="font-size:12px; letter-spacing:.04em; color:#8a8378; margin-bottom:4px;"><span style="display:inline-block; width:7px; height:7px; border-radius:50%; background:oklch(0.72 0.11 235); margin-right:7px; vertical-align:middle;"></span>Anna Green · WET</div>
+            <div style="display:flex; flex-wrap:wrap; gap:6px 14px; font-size:15px; color:#e8e3d6;"><span style="display:flex; align-items:center; gap:6px;"><span style="font-size:19px; line-height:1;">💧</span>spray bottle</span></div></div>
+        </div>
+        <div style="display:grid; grid-template-columns:96px 1fr 250px; gap:16px; padding:14px 24px; border-bottom:1px solid #1a1d1f; font-size:14px; color:#b9b3a8;">
+          <div>01:18:52</div>
+          <div><div style="font-size:13px; color:#6b7076; margin-bottom:4px;">Weathertop wind</div><div style="font-size:16px;">Fan on full + flicker the flashlight</div></div>
+          <div><div style="font-size:12px; letter-spacing:.04em; color:#8a8378; margin-bottom:4px;"><span style="display:inline-block; width:7px; height:7px; border-radius:50%; background:oklch(0.82 0.12 75); margin-right:7px; vertical-align:middle;"></span>Andrey · LIGHTING, FIRE &amp; WIND</div>
+            <div style="display:flex; flex-wrap:wrap; gap:6px 14px; font-size:15px; color:#e8e3d6;"><span style="display:flex; align-items:center; gap:6px;"><span style="font-size:19px; line-height:1;">🌬</span>fan</span><span style="display:flex; align-items:center; gap:6px;"><span style="font-size:19px; line-height:1;">🔦</span>flashlight</span></div></div>
+        </div>
+        <div style="display:grid; grid-template-columns:96px 1fr 250px; gap:16px; padding:14px 24px; border-bottom:1px solid #1a1d1f; font-size:14px; color:#b9b3a8;">
+          <div>02:33:10</div>
+          <div>
+            <div style="font-size:13px; color:#6b7076; margin-bottom:4px;">Frodo sits on Amon Hen wearing the ring</div>
+            <div style="font-size:16px; text-wrap:pretty;">Strobe + fan + orange light + magnet-pull ring + Sauron dialog via headphones — <span style="color:oklch(0.82 0.11 70);">cut abruptly when ring comes off</span></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <div><div style="font-size:12px; letter-spacing:.04em; color:#8a8378; margin-bottom:4px;"><span style="display:inline-block; width:7px; height:7px; border-radius:50%; background:oklch(0.82 0.12 75); margin-right:7px; vertical-align:middle;"></span>Andrey · LIGHTING, FIRE &amp; WIND</div>
+            <div style="display:flex; flex-wrap:wrap; gap:6px 14px; font-size:15px; color:#e8e3d6;"><span style="display:flex; align-items:center; gap:6px;"><span style="font-size:19px; line-height:1;">🌬</span>fan</span><span style="display:flex; align-items:center; gap:6px;"><span style="font-size:19px; line-height:1;">🔦</span>flashlight</span></div></div>
+            <div><div style="font-size:12px; letter-spacing:.04em; color:#8a8378; margin-bottom:4px;"><span style="display:inline-block; width:7px; height:7px; border-radius:50%; background:oklch(0.72 0.13 300); margin-right:7px; vertical-align:middle;"></span>Anna Green · RING</div>
+            <div style="display:flex; flex-wrap:wrap; gap:6px 14px; font-size:15px; color:#e8e3d6;"><span style="display:flex; align-items:center; gap:6px;"><span style="font-size:19px; line-height:1;">🧲</span>magnet</span><span style="display:flex; align-items:center; gap:6px;"><span style="font-size:19px; line-height:1;">💍</span>ring</span></div></div>
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:96px 1fr 250px; gap:16px; padding:14px 24px; font-size:14px; color:#b9b3a8;">
+          <div>02:35:20</div>
+          <div><div style="font-size:13px; color:#6b7076; margin-bottom:4px;">Aragorn fights the Uruk-hai</div><div style="font-size:16px;">Give Sid a play sword, sword fight 1–2 people</div></div>
+          <div><div style="font-size:12px; letter-spacing:.04em; color:#8a8378; margin-bottom:4px;"><span style="display:inline-block; width:7px; height:7px; border-radius:50%; background:oklch(0.7 0.16 25); margin-right:7px; vertical-align:middle;"></span>Ben · FIGHTING</div>
+            <div style="display:flex; flex-wrap:wrap; gap:6px 14px; font-size:15px; color:#e8e3d6;"><span style="display:flex; align-items:center; gap:6px;"><span style="font-size:19px; line-height:1;">⚔️</span>plastic sword</span></div></div>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:10px; padding:14px 24px; border-top:1px solid #23262a;">
+        <div style="font-size:12px; letter-spacing:.14em; color:#8a8378; border:1px solid #2e3237; padding:8px 14px; cursor:pointer;" style-hover="color:#e8e3d6; border-color:#5c6167;">+ ADD CUE</div>
+        <div style="font-size:12px; letter-spacing:.14em; color:#8a8378; border:1px solid #2e3237; padding:8px 14px; cursor:pointer;" style-hover="color:#e8e3d6; border-color:#5c6167;">EDIT LIST</div>
+      </div>
+    </div>
+
+    <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.16em; color:#5c6167; margin-top:10px;">GO CARD — DENSE CUE (2 PEOPLE, 2 CATEGORIES, 4 ITEMS)</div>
+    <div style="width:880px; box-sizing:border-box; background:#101112; border:1px solid #23262a; font-family:'IBM Plex Mono',monospace; color:#b9b3a8; padding:26px 24px;">
+      <div style="display:flex; align-items:baseline; gap:10px;">
+        <div style="font-size:10px; letter-spacing:.22em; color:oklch(0.75 0.16 145);">GO — RUNNING NOW</div>
+        <div style="font-size:12px; color:#8a8378;">02:33:10</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr auto; gap:32px; align-items:start; margin-top:14px;">
+        <div>
+          <div style="font-family:'Archivo Narrow',sans-serif; font-size:22px; font-weight:500; letter-spacing:.04em; color:oklch(0.82 0.09 65);">Frodo sits on Amon Hen wearing the ring</div>
+          <div style="font-family:'Archivo Narrow',sans-serif; font-size:40px; font-weight:600; line-height:1.06; color:#e8e3d6; margin-top:6px; text-wrap:pretty;">Strobe + fan + orange light + magnet-pull ring + Sauron dialog via headphones — <span style="color:oklch(0.86 0.11 75);">cut abruptly when the ring comes off</span></div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px; min-width:290px;">
+          <div style="background:#1c1f21; border:1px solid #3a3f45;">
+            <div style="display:flex; align-items:baseline; gap:9px; padding:9px 14px; border-bottom:1px solid #3a3f45;">
+              <span style="font-family:'Archivo Narrow',sans-serif; font-size:22px; font-weight:700; color:#e8e3d6; line-height:1;">Andrey</span>
+              <span style="font-size:10px; letter-spacing:.16em; color:#7d858c;"><span style="display:inline-block; width:7px; height:7px; border-radius:50%; background:oklch(0.82 0.12 75); margin-right:7px; vertical-align:middle;"></span>LIGHTING, FIRE &amp; WIND</span>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:8px; padding:12px 14px;">
+              <div style="display:flex; align-items:center; gap:9px; background:#262a2d; padding:6px 12px 6px 9px;">
+                <span style="font-size:23px; line-height:1;">🌬</span><span style="font-family:'Archivo Narrow',sans-serif; font-size:19px; font-weight:600; color:#e8e3d6;">fan</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:9px; background:#262a2d; padding:6px 12px 6px 9px;">
+                <span style="font-size:23px; line-height:1;">🔦</span><span style="font-family:'Archivo Narrow',sans-serif; font-size:19px; font-weight:600; color:#e8e3d6;">light</span>
+              </div>
+            </div>
+          </div>
+          <div style="background:#1c1f21; border:1px solid #3a3f45;">
+            <div style="display:flex; align-items:baseline; gap:9px; padding:9px 14px; border-bottom:1px solid #3a3f45;">
+              <span style="font-family:'Archivo Narrow',sans-serif; font-size:22px; font-weight:700; color:#e8e3d6; line-height:1;">Anna Green</span>
+              <span style="font-size:10px; letter-spacing:.16em; color:#7d858c;"><span style="display:inline-block; width:7px; height:7px; border-radius:50%; background:oklch(0.72 0.13 300); margin-right:7px; vertical-align:middle;"></span>RING</span>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:8px; padding:12px 14px;">
+              <div style="display:flex; align-items:center; gap:9px; background:#262a2d; padding:6px 12px 6px 9px;">
+                <span style="font-size:23px; line-height:1;">🧲</span><span style="font-family:'Archivo Narrow',sans-serif; font-size:19px; font-weight:600; color:#e8e3d6;">magnet</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:9px; background:#262a2d; padding:6px 12px 6px 9px;">
+                <span style="font-size:23px; line-height:1;">💍</span><span style="font-family:'Archivo Narrow',sans-serif; font-size:19px; font-weight:600; color:#e8e3d6;">ring</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="display:flex; flex-direction:column; gap:28px; padding:48px; font-family:'Space Grotesk',Helvetica,sans-serif;">
+  <div style="display:flex; align-items:baseline; gap:16px; color:#8a8378;">
+    <div style="font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:.18em; color:#c8a24a;">TURN 1</div>
+    <div style="font-size:14px;">Three directions for the cue runner — <a href="#1a">1a</a> prompt book, <a href="#1b">1b</a> red book of westmarch, <a href="#1c">1c</a> ranger's instrument. All share one live clock: hit the transport to run them.</div>
+  </div>
+
+  <div style="display:flex; gap:44px; align-items:flex-start; flex-wrap:wrap;">
+
+    <!-- ============ 1a ============ -->
+    <div id="1a" style="display:flex; flex-direction:column; gap:14px;">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:.14em; color:#0a0908; background:#c8a24a; padding:5px 9px; border-radius:3px;">1A</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.16em; color:#7d766c;">THE PROMPT BOOK — STAGE MANAGER'S CUE SHEET</div>
+      </div>
+
+      <div style="width:780px; background:#0c0d0e; border:1px solid #23262a; font-family:'IBM Plex Mono',monospace; color:#b9b3a8;">
+
+        <div style="display:flex; align-items:center; justify-content:space-between; padding:16px 22px; border-bottom:1px solid #23262a;">
+          <div style="font-family:'Archivo Narrow',sans-serif; font-size:15px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:#8a8378;">
+            <span style="color:#e8e3d6;">Fellowship of the Ring</span>
+            <span style="color:#575c62;"> / prompt book / act i</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span style="width:9px; height:9px; border-radius:50%; background:oklch(0.72 0.19 25); box-shadow:0 0 12px oklch(0.72 0.19 25 / 0.7);"></span>
+            <span style="font-size:11px; letter-spacing:.2em; color:#8a8378;">LIVE</span>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr auto; gap:0; border-bottom:1px solid #23262a;">
+          <div style="padding:18px 22px; display:flex; align-items:center; gap:26px;">
+            <div>
+              <div style="font-size:10px; letter-spacing:.24em; color:#6b7076; margin-bottom:6px;">SHOW TIME</div>
+              <div style="font-size:34px; font-weight:600; color:#e8e3d6; letter-spacing:.02em; line-height:1;">{{ clock }}</div>
+            </div>
+            <div style="width:1px; height:44px; background:#23262a;"></div>
+            <div>
+              <div style="font-size:10px; letter-spacing:.24em; color:#6b7076; margin-bottom:6px;">SYNC TO FILM</div>
+              <input type="text" value="{{ syncText }}" onChange="{{ onSync }}" style="width:130px; background:#131517; border:1px solid #2e3237; color:#e8e3d6; font-family:'IBM Plex Mono',monospace; font-size:18px; padding:7px 10px; letter-spacing:.06em;">
+            </div>
+          </div>
+          <div style="display:flex; border-left:1px solid #23262a;">
+            <div onClick="{{ toggle }}" style="width:112px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; cursor:pointer; background:{{ transportBg }};" style-hover="filter:brightness(1.25)">
+              <div style="font-size:22px; color:#e8e3d6;">{{ transportGlyph }}</div>
+              <div style="font-size:10px; letter-spacing:.22em; color:#cfc9bd;">{{ transportLabel }}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NOW -->
+        <div style="padding:26px 22px 24px; border-bottom:1px solid #23262a; background:#101112;">
+          <div style="display:flex; gap:22px;">
+            <div style="flex:0 0 96px; border-right:1px solid #2e3237; padding-right:18px;">
+              <div style="font-size:10px; letter-spacing:.22em; color:#6b7076; margin-bottom:8px;">CUE</div>
+              <div style="font-family:'Archivo Narrow',sans-serif; font-size:66px; font-weight:700; line-height:.82; color:#c8a24a;">14</div>
+              <div style="font-size:12px; color:#8a8378; margin-top:10px;">00:44:45</div>
+            </div>
+            <div style="flex:1;">
+              <div style="font-size:10px; letter-spacing:.22em; color:oklch(0.75 0.16 145); margin-bottom:10px;">GO — RUNNING NOW</div>
+              <div style="font-family:'Archivo Narrow',sans-serif; font-size:44px; font-weight:600; line-height:1.02; color:#e8e3d6; text-wrap:pretty;">Carrot snack</div>
+              <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;">
+                <div style="display:flex; align-items:center; gap:8px; background:#191b1d; border:1px solid #2e3237; padding:7px 12px;">
+                  <span style="font-size:19px; line-height:1;">🥕</span>
+                  <span style="font-size:13px; color:#cfc9bd;">carrot</span>
+                </div>
+                <div style="display:flex; align-items:center; padding:7px 12px; border:1px solid oklch(0.62 0.12 60 / 0.5); background:oklch(0.62 0.12 60 / 0.13); font-size:11px; letter-spacing:.14em; color:oklch(0.82 0.09 65);">FOOD &amp; DRINK</div>
+                <div style="display:flex; align-items:center; padding:7px 12px; border:1px solid #2e3237; font-size:11px; letter-spacing:.14em; color:#8a8378;">OP · BEN</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STANDBY -->
+        <div style="padding:16px 22px; display:flex; align-items:center; gap:20px; border-bottom:1px solid #23262a; background:oklch(0.62 0.12 60 / 0.07);">
+          <div style="font-size:10px; letter-spacing:.22em; color:oklch(0.82 0.11 70);">STANDBY Q15</div>
+          <div style="font-size:30px; font-weight:600; color:#e8e3d6; letter-spacing:.02em;">{{ countdown }}</div>
+          <div style="flex:1; font-family:'Archivo Narrow',sans-serif; font-size:19px; color:#b9b3a8;">Spray water mist over the room <span style="color:#6b7076;">— Bucklebury Ferry</span></div>
+          <div style="font-size:20px;">💧</div>
+        </div>
+
+        <!-- LIST -->
+        <div>
+          <div style="display:grid; grid-template-columns:44px 92px 1fr 148px 96px; gap:14px; padding:10px 22px; border-bottom:1px solid #23262a; font-size:10px; letter-spacing:.2em; color:#5c6167;">
+            <div>Q</div><div>TC</div><div>CUE</div><div>ITEM</div><div>OP</div>
+          </div>
+          <div style="display:grid; grid-template-columns:44px 92px 1fr 148px 96px; gap:14px; padding:13px 22px; border-bottom:1px solid #1a1d1f; font-size:14px; color:#4e5359;">
+            <div>11</div><div>00:08:45</div><div>Shake chair</div><div>🪑 chair</div><div>Matt</div>
+          </div>
+          <div style="display:grid; grid-template-columns:44px 92px 1fr 148px 96px; gap:14px; padding:13px 22px; border-bottom:1px solid #1a1d1f; font-size:14px; color:#4e5359;">
+            <div>12</div><div>00:15:33</div><div>Light and pass joint, one puff then take back</div><div>🌿 weed</div><div>Andrey</div>
+          </div>
+          <div style="display:grid; grid-template-columns:44px 92px 1fr 148px 96px; gap:14px; padding:13px 22px; border-bottom:1px solid #1a1d1f; font-size:14px; color:#3f4348; font-style:italic;">
+            <div>13</div><div>00:22:38</div><div>— mood beat: tall / scary / shadow Gandalf</div><div></div><div></div>
+          </div>
+          <div style="display:grid; grid-template-columns:44px 92px 1fr 148px 96px; gap:14px; padding:15px 22px; border-bottom:1px solid #23262a; font-size:14px; background:#e8e3d6; color:#111213; font-weight:500;">
+            <div style="font-weight:700;">14</div><div>00:44:45</div><div>Carrot snack</div><div>🥕 carrot</div><div>Ben</div>
+          </div>
+          <div style="display:grid; grid-template-columns:44px 92px 1fr 148px 96px; gap:14px; padding:13px 22px; border-bottom:1px solid #1a1d1f; font-size:14px; color:#b9b3a8;">
+            <div>15</div><div>01:02:10</div><div>Spray water mist over the room</div><div>💧 spray bottle</div><div>Anna Green</div>
+          </div>
+          <div style="display:grid; grid-template-columns:44px 92px 1fr 148px 96px; gap:14px; padding:13px 22px; border-bottom:1px solid #1a1d1f; font-size:14px; color:#b9b3a8;">
+            <div>16</div><div>01:18:52</div><div>Fan on full + flicker the flashlight</div><div>🌬 fan<br>🔦 flashlight</div><div>Andrey</div>
+          </div>
+          <div style="display:grid; grid-template-columns:44px 92px 1fr 148px 96px; gap:14px; padding:13px 22px; border-bottom:1px solid #1a1d1f; font-size:14px; color:#b9b3a8;">
+            <div>17</div>
+            <div>02:33:10</div>
+            <div style="text-wrap:pretty;">Strobe + fan + orange light + magnet-pull ring + Sauron dialog via headphones — <span style="color:oklch(0.82 0.11 70);">cut abruptly when the ring comes off</span></div>
+            <div>🌬 fan<br>🔦 flashlight<br>🧲 magnet<br>💍 ring</div>
+            <div>Andrey<br>Anna Green</div>
+          </div>
+          <div style="display:grid; grid-template-columns:44px 92px 1fr 148px 96px; gap:14px; padding:13px 22px; font-size:14px; color:#b9b3a8;">
+            <div>18</div><div>02:35:20</div><div>Give Sid a play sword, sword fight 1–2 people</div><div>⚔️ plastic sword</div><div>Ben</div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:10px; padding:14px 22px; border-top:1px solid #23262a;">
+          <div style="font-size:12px; letter-spacing:.14em; color:#8a8378; border:1px solid #2e3237; padding:8px 14px; cursor:pointer;" style-hover="color:#e8e3d6; border-color:#5c6167;">+ ADD CUE</div>
+          <div style="font-size:12px; letter-spacing:.14em; color:#8a8378; border:1px solid #2e3237; padding:8px 14px; cursor:pointer;" style-hover="color:#e8e3d6; border-color:#5c6167;">EDIT LIST</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 1b ============ -->
+    <div id="1b" style="display:flex; flex-direction:column; gap:14px;">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:.14em; color:#0a0908; background:#c8a24a; padding:5px 9px; border-radius:3px;">1B</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.16em; color:#7d766c;">RED BOOK OF WESTMARCH — STORYBOOK / ILLUMINATED</div>
+      </div>
+
+      <div style="width:720px; background:#14100b; border:1px solid #3a2f1f; padding:26px; font-family:'Spectral',Georgia,serif; color:#c0b193;">
+
+        <div style="display:flex; align-items:baseline; justify-content:space-between; padding-bottom:14px; border-bottom:1px solid #3a2f1f;">
+          <div style="font-family:'Cormorant Garamond',Georgia,serif; font-size:26px; font-weight:600; letter-spacing:.06em; color:#e2cfa4;">There &amp; Back Again</div>
+          <div style="font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:#8a785b;">Chapter II · A Short Cut to Mushrooms</div>
+        </div>
+
+        <!-- parchment now card -->
+        <div style="margin-top:22px; background:linear-gradient(180deg,#ddcda9,#cbb894); border:1px solid #8a734b; padding:26px 28px; color:#2f2413; position:relative;">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <div style="font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:#7a6033;">Now upon the hour</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:20px; color:#5b4a2a;">{{ clock }}</div>
+          </div>
+          <div style="display:flex; gap:20px; margin-top:14px; align-items:flex-start;">
+            <div style="font-family:'Cormorant Garamond',serif; font-size:96px; font-weight:700; line-height:.72; color:#8a2f22;">C</div>
+            <div style="flex:1; padding-top:6px;">
+              <div style="font-family:'Cormorant Garamond',serif; font-size:46px; font-weight:600; line-height:1.02; color:#2f2413;">arrot snack</div>
+              <div style="font-size:15px; font-style:italic; color:#6a583a; margin-top:8px;">— a small provision, taken quietly —</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px; margin-top:20px; padding-top:16px; border-top:1px solid #a8905f;">
+            <div style="display:flex; align-items:center; gap:9px; background:#e6d8b8; border:1px solid #a8905f; border-radius:999px; padding:6px 14px 6px 8px;">
+              <span style="font-size:20px; line-height:1;">🥕</span>
+              <span style="font-size:14px; color:#4a3a20;">carrot</span>
+            </div>
+            <div style="font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:#7a6033;">Food &amp; Drink</div>
+            <div style="flex:1;"></div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:20px; color:#5b4a2a;">kept by <span style="font-weight:700; color:#2f2413;">Ben</span></div>
+          </div>
+        </div>
+
+        <!-- next -->
+        <div style="display:flex; align-items:center; gap:16px; margin-top:18px;">
+          <div style="font-family:'Cormorant Garamond',serif; font-size:15px; letter-spacing:.2em; text-transform:uppercase; color:#8a785b;">Anon</div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:38px; font-weight:600; color:#e2cfa4; line-height:1;">{{ countdown }}</div>
+          <div style="flex:1; font-size:17px; color:#c0b193; text-wrap:pretty;">Spray the water mist — <span style="font-style:italic; color:#8a785b;">the ferry at Bucklebury</span></div>
+          <div style="font-size:22px;">💧</div>
+        </div>
+
+        <!-- transport -->
+        <div style="display:flex; align-items:center; gap:12px; margin-top:18px; padding:14px 16px; border:1px solid #3a2f1f; background:#191309;">
+          <div onClick="{{ toggle }}" style="display:flex; align-items:center; gap:10px; background:#c8a24a; color:#1b1409; padding:10px 20px; border-radius:999px; cursor:pointer; font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:700; letter-spacing:.1em;" style-hover="background:#e2cfa4">
+            <span style="font-size:15px;">{{ transportGlyph }}</span><span>{{ transportWord }}</span>
+          </div>
+          <div style="font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:#8a785b;">Set to film</div>
+          <input type="text" value="{{ syncText }}" onChange="{{ onSync }}" style="width:130px; background:#0f0b06; border:1px solid #3a2f1f; color:#e2cfa4; font-family:'Cormorant Garamond',serif; font-size:20px; padding:6px 12px; text-align:center;">
+          <div style="flex:1;"></div>
+          <div style="font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:#8a785b; cursor:pointer;" style-hover="color:#e2cfa4">Amend the tale ✎</div>
+        </div>
+
+        <div style="text-align:center; color:#5f5133; letter-spacing:.5em; margin:22px 0 14px;">· ✦ ·</div>
+
+        <!-- the tale so far -->
+        <div style="display:flex; flex-direction:column;">
+          <div style="display:flex; gap:16px; padding:11px 4px; align-items:baseline; color:#5f5133;">
+            <div style="width:78px; font-family:'Cormorant Garamond',serif; font-size:17px;">00:08:45</div>
+            <div style="width:22px; text-align:center; opacity:.45;">🪑</div>
+            <div style="flex:1; font-size:16px;">Shake the chair <span style="font-style:italic;">— Frodo leaps into the wagon</span></div>
+            <div style="font-size:14px;">Matt</div>
+          </div>
+          <div style="display:flex; gap:16px; padding:11px 4px; align-items:baseline; color:#5f5133;">
+            <div style="width:78px; font-family:'Cormorant Garamond',serif; font-size:17px;">00:15:33</div>
+            <div style="width:22px; text-align:center; opacity:.45;">🌿</div>
+            <div style="flex:1; font-size:16px; text-wrap:pretty;">Light and pass the joint, one puff, then take it back</div>
+            <div style="font-size:14px;">Andrey</div>
+          </div>
+          <div style="display:flex; gap:16px; padding:11px 4px; align-items:baseline; color:#4d4128;">
+            <div style="width:78px; font-family:'Cormorant Garamond',serif; font-size:17px;">00:22:38</div>
+            <div style="width:22px; text-align:center;"></div>
+            <div style="flex:1; font-size:16px; font-style:italic;">Tall, scary, shadow Gandalf — watch only</div>
+            <div style="font-size:14px;"></div>
+          </div>
+          <div style="display:flex; gap:16px; padding:14px 12px; align-items:baseline; background:oklch(0.62 0.12 75 / 0.16); border-left:3px solid #c8a24a; color:#e2cfa4;">
+            <div style="width:70px; font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:700;">00:44:45</div>
+            <div style="width:22px; text-align:center;">🥕</div>
+            <div style="flex:1; font-size:17px; font-weight:500;">Carrot snack</div>
+            <div style="font-size:14px;">Ben</div>
+          </div>
+          <div style="display:flex; gap:16px; padding:11px 4px; align-items:baseline; color:#c0b193;">
+            <div style="width:78px; font-family:'Cormorant Garamond',serif; font-size:17px;">01:02:10</div>
+            <div style="width:22px; text-align:center;">💧</div>
+            <div style="flex:1; font-size:16px;">Spray the water mist <span style="font-style:italic; color:#8a785b;">— the ferry</span></div>
+            <div style="font-size:14px;">Anna Green</div>
+          </div>
+          <div style="display:flex; gap:16px; padding:11px 4px; align-items:baseline; color:#c0b193;">
+            <div style="width:78px; font-family:'Cormorant Garamond',serif; font-size:17px;">01:18:52</div>
+            <div style="width:22px; text-align:center;">🌬</div>
+            <div style="flex:1; font-size:16px;">Fan on full, flicker the flashlight <span style="font-style:italic; color:#8a785b;">— Weathertop</span></div>
+            <div style="font-size:14px;">Andrey</div>
+          </div>
+          <div style="display:flex; gap:16px; padding:11px 4px; align-items:baseline; color:#c0b193;">
+            <div style="width:78px; font-family:'Cormorant Garamond',serif; font-size:17px;">02:33:10</div>
+            <div style="width:22px; text-align:center; line-height:1.5;">🌬<br>🔦<br>🧲<br>💍</div>
+            <div style="flex:1; font-size:16px; text-wrap:pretty;">Strobe, fan, orange light, pull the ring with the magnet, Sauron in the headphones — <span style="color:#e2cfa4;">cut it all abruptly when the ring comes off</span></div>
+            <div style="font-size:14px; line-height:1.6;">Andrey<br>Anna&nbsp;Green</div>
+          </div>
+          <div style="display:flex; gap:16px; padding:11px 4px; align-items:baseline; color:#c0b193;">
+            <div style="width:78px; font-family:'Cormorant Garamond',serif; font-size:17px;">02:35:20</div>
+            <div style="width:22px; text-align:center;">⚔️</div>
+            <div style="flex:1; font-size:16px;">Give Sid a play sword, fight one or two people</div>
+            <div style="font-size:14px;">Ben</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 1c ============ -->
+    <div id="1c" style="display:flex; flex-direction:column; gap:14px;">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:.14em; color:#0a0908; background:#c8a24a; padding:5px 9px; border-radius:3px;">1C</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.16em; color:#7d766c;">RANGER'S INSTRUMENT — GLANCEABLE / DATA-MINIMAL</div>
+      </div>
+
+      <div style="width:700px; background:#050607; border:1px solid #16191c; padding:0; font-family:'Space Grotesk',Helvetica,sans-serif; color:#7f8a90;">
+
+        <div style="display:flex; align-items:center; justify-content:space-between; padding:18px 24px;">
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div onClick="{{ toggle }}" style="width:46px; height:46px; border-radius:50%; border:1px solid oklch(0.7 0.09 195 / 0.55); display:flex; align-items:center; justify-content:center; color:oklch(0.85 0.09 195); font-size:15px; cursor:pointer;" style-hover="background:oklch(0.7 0.09 195 / 0.14)">{{ transportGlyph }}</div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:26px; font-weight:500; color:#dfe6e9; letter-spacing:.02em;">{{ clock }}</div>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.2em; color:#4b5459;">SYNC</div>
+            <input type="text" value="{{ syncText }}" onChange="{{ onSync }}" style="width:118px; background:#0c0e10; border:none; border-bottom:1px solid #22272b; color:#dfe6e9; font-family:'JetBrains Mono',monospace; font-size:15px; padding:6px 4px; text-align:center;">
+          </div>
+        </div>
+
+        <div style="height:2px; background:#12161a;">
+          <div style="height:2px; width:{{ progress }}; background:oklch(0.8 0.1 195);"></div>
+        </div>
+
+        <!-- big countdown to next -->
+        <div style="padding:30px 24px 26px; display:flex; align-items:flex-end; gap:28px; border-bottom:1px solid #12161a;">
+          <div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.24em; color:#4b5459; margin-bottom:10px;">NEXT CUE IN</div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:88px; font-weight:800; line-height:.82; color:#f2f6f8; letter-spacing:-.02em;">{{ countdown }}</div>
+          </div>
+          <div style="flex:1; padding-bottom:6px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span style="font-size:26px;">💧</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.2em; color:oklch(0.8 0.1 195);">WET</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.2em; color:#4b5459;">ANNA GREEN</span>
+            </div>
+            <div style="font-size:24px; font-weight:500; color:#dfe6e9; margin-top:10px; line-height:1.2; text-wrap:pretty;">Spray water mist over the room</div>
+            <div style="font-size:15px; color:#5c666b; margin-top:5px;">Bucklebury Ferry · 01:02:10</div>
+          </div>
+        </div>
+
+        <!-- holding / now -->
+        <div style="padding:18px 24px; display:flex; align-items:center; gap:16px; background:oklch(0.7 0.09 195 / 0.07); border-bottom:1px solid #12161a;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.24em; color:oklch(0.8 0.1 195);">ON NOW</div>
+          <span style="font-size:22px;">🥕</span>
+          <div style="flex:1; font-size:19px; color:#dfe6e9;">Carrot snack <span style="color:#4b5459; font-size:15px;">· 00:44:45 · Ben</span></div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.16em; color:#4b5459; border:1px solid #22272b; padding:6px 12px; border-radius:999px; cursor:pointer;" style-hover="color:#dfe6e9">DONE</div>
+        </div>
+
+        <!-- rail -->
+        <div style="padding:22px 24px 26px;">
+          <div style="display:flex; gap:18px; align-items:flex-start; padding-bottom:20px; opacity:.42;">
+            <div style="width:72px; font-family:'JetBrains Mono',monospace; font-size:14px; color:#6d777c; padding-top:2px;">00:15:33</div>
+            <div style="display:flex; flex-direction:column; align-items:center; align-self:stretch;">
+              <div style="width:8px; height:8px; border-radius:50%; background:#2b3236; margin-top:6px;"></div>
+              <div style="flex:1; width:1px; background:#1a1f23; margin-top:4px;"></div>
+            </div>
+            <div style="flex:1; display:flex; gap:12px; align-items:flex-start;">
+              <span style="font-size:20px;">🌿</span>
+              <div>
+                <div style="font-size:17px; color:#8c979d;">Light and pass joint, one puff then take back</div>
+                <div style="font-size:13px; color:#4b5459; margin-top:3px;">Bilbo &amp; Gandalf smoking · Andrey</div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex; gap:18px; align-items:flex-start; padding-bottom:20px; opacity:.42;">
+            <div style="width:72px; font-family:'JetBrains Mono',monospace; font-size:14px; color:#6d777c; padding-top:2px;">00:22:38</div>
+            <div style="display:flex; flex-direction:column; align-items:center; align-self:stretch;">
+              <div style="width:8px; height:8px; border-radius:50%; border:1px solid #2b3236; margin-top:6px;"></div>
+              <div style="flex:1; width:1px; background:#1a1f23; margin-top:4px;"></div>
+            </div>
+            <div style="flex:1;">
+              <div style="font-size:17px; color:#5c666b; font-style:italic;">Watch only — tall / scary / shadow Gandalf</div>
+            </div>
+          </div>
+          <div style="display:flex; gap:18px; align-items:flex-start; padding-bottom:22px;">
+            <div style="width:72px; font-family:'JetBrains Mono',monospace; font-size:14px; color:#dfe6e9; padding-top:2px; font-weight:500;">01:18:52</div>
+            <div style="display:flex; flex-direction:column; align-items:center; align-self:stretch;">
+              <div style="width:8px; height:8px; border-radius:50%; background:oklch(0.8 0.1 195); box-shadow:0 0 10px oklch(0.8 0.1 195 / .6); margin-top:6px;"></div>
+              <div style="flex:1; width:1px; background:#1a1f23; margin-top:4px;"></div>
+            </div>
+            <div style="flex:1; display:flex; gap:12px; align-items:flex-start;">
+              <div style="display:flex; gap:6px;">
+                <span style="font-size:20px;">🌬</span><span style="font-size:20px;">🔦</span>
+              </div>
+              <div>
+                <div style="font-size:18px; color:#dfe6e9;">Fan on full + flicker the flashlight</div>
+                <div style="font-size:13px; color:#4b5459; margin-top:3px;">Weathertop wind · LIGHTING, FIRE &amp; WIND · Andrey</div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex; gap:18px; align-items:flex-start; padding-bottom:22px;">
+            <div style="width:72px; font-family:'JetBrains Mono',monospace; font-size:14px; color:#dfe6e9; padding-top:2px; font-weight:500;">02:33:10</div>
+            <div style="display:flex; flex-direction:column; align-items:center; align-self:stretch;">
+              <div style="width:8px; height:8px; border-radius:50%; background:#3a4247; margin-top:6px;"></div>
+              <div style="flex:1; width:1px; background:#1a1f23; margin-top:4px;"></div>
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex; gap:6px; margin-bottom:8px;">
+                <span style="font-size:20px;">🌬</span><span style="font-size:20px;">🔦</span><span style="font-size:20px;">🧲</span><span style="font-size:20px;">💍</span>
+              </div>
+              <div style="font-size:18px; color:#dfe6e9; text-wrap:pretty; line-height:1.35;">Strobe + fan + orange light + magnet-pull ring + Sauron dialog via headphones — <span style="color:oklch(0.85 0.09 195);">cut abruptly when ring comes off</span></div>
+              <div style="font-size:13px; color:#4b5459; margin-top:5px;">Frodo on Amon Hen · LIGHTING + RING · Andrey, Anna Green</div>
+            </div>
+          </div>
+          <div style="display:flex; gap:18px; align-items:flex-start;">
+            <div style="width:72px; font-family:'JetBrains Mono',monospace; font-size:14px; color:#dfe6e9; padding-top:2px; font-weight:500;">02:35:20</div>
+            <div style="display:flex; flex-direction:column; align-items:center;">
+              <div style="width:8px; height:8px; border-radius:50%; background:#3a4247; margin-top:6px;"></div>
+            </div>
+            <div style="flex:1; display:flex; gap:12px; align-items:flex-start;">
+              <span style="font-size:20px;">⚔️</span>
+              <div>
+                <div style="font-size:18px; color:#dfe6e9;">Give Sid a play sword, sword fight 1–2 people</div>
+                <div style="font-size:13px; color:#4b5459; margin-top:3px;">Aragorn fights the Uruk-hai · FIGHTING · Ben</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:8px; padding:16px 24px; border-top:1px solid #12161a;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.16em; color:#5c666b; border:1px solid #22272b; padding:9px 14px; border-radius:999px; cursor:pointer;" style-hover="color:#dfe6e9">+ CUE</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.16em; color:#5c666b; border:1px solid #22272b; padding:9px 14px; border-radius:999px; cursor:pointer;" style-hover="color:#dfe6e9">EDIT</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { t: 2685, playing: false, syncText: "00:44:45" };
+
+  componentDidMount() {
+    this.iv = setInterval(() => {
+      if (this.state.playing) this.setState(s => ({ t: s.t + 1, syncText: this.hms(s.t + 1) }));
+    }, 1000);
+  }
+  componentWillUnmount() { clearInterval(this.iv); }
+
+  pad(n) { return String(n).padStart(2, "0"); }
+  hms(t) { return this.pad(Math.floor(t / 3600)) + ":" + this.pad(Math.floor(t / 60) % 60) + ":" + this.pad(t % 60); }
+  ms(t) {
+    if (t < 0) t = 0;
+    const h = Math.floor(t / 3600);
+    return (h ? h + ":" + this.pad(Math.floor(t / 60) % 60) : Math.floor(t / 60)) + ":" + this.pad(t % 60);
+  }
+
+  renderVals() {
+    const t = this.state.t;
+    const next = 3730; // 01:02:10
+    const playing = this.state.playing;
+    return {
+      clock: this.hms(t),
+      countdown: this.ms(next - t),
+      elapsed: this.ms(Math.max(0, t - 2685)),
+      syncText: this.state.syncText,
+      progress: Math.min(100, (t / 10680) * 100).toFixed(1) + "%",
+      playing,
+      transportGlyph: playing ? "❚❚" : "▶",
+      transportLabel: playing ? "HOLD" : "RUN",
+      transportWord: playing ? "Hold" : "Run",
+      transportBg: playing ? "oklch(0.42 0.13 25)" : "oklch(0.4 0.1 145)",
+      toggle: () => this.setState(s => ({ playing: !s.playing })),
+      back5: () => this.setState(s => { const n = Math.max(0, s.t - 5); return { t: n, syncText: this.hms(n) }; }),
+      fwd5: () => this.setState(s => ({ t: s.t + 5, syncText: this.hms(s.t + 5) })),
+      reset: () => this.setState({ t: 0, playing: false, syncText: "00:00:00" }),
+      onSync: e => {
+        const v = e.target.value;
+        const p = v.split(":").map(x => parseInt(x, 10));
+        const ok = p.length === 3 && p.every(n => !isNaN(n));
+        this.setState({ syncText: v, ...(ok ? { t: p[0] * 3600 + p[1] * 60 + p[2] } : {}) });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

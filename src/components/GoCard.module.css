@@ -1,0 +1,142 @@
+.card {
+  padding: clamp(10px, 2vh, 22px) 26px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-card);
+  flex: none;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.headerLabel {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--go);
+}
+
+.headerTime {
+  font-size: 12px;
+  color: var(--text-mid);
+}
+
+.headerElapsed {
+  font-size: 12px;
+  color: var(--go);
+}
+
+.body {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: start;
+  margin-top: clamp(6px, 1.4vh, 14px);
+}
+
+.scene {
+  font-family: var(--font-narrow);
+  font-size: clamp(15px, 2.3vh, 21px);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--scene);
+  min-height: 20px;
+}
+
+.action {
+  font-family: var(--font-narrow);
+  font-weight: 600;
+  line-height: 1.04;
+  color: var(--text-hi);
+  margin-top: 6px;
+  text-wrap: pretty;
+}
+
+.groups {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 270px;
+  max-width: 400px;
+}
+
+.block {
+  background: var(--bg-block);
+  border: 1px solid var(--border-block);
+}
+
+.blockHeader {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--border-block);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.who {
+  font-family: var(--font-narrow);
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--text-hi);
+  line-height: 1;
+}
+
+.category {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: #7d858c;
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 11px 14px;
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--bg-chip);
+  padding: 6px 12px 6px 9px;
+}
+
+.chipEmoji {
+  font-size: 23px;
+  line-height: 1;
+}
+
+.chipName {
+  font-family: var(--font-narrow);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-hi);
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+}
+
+.emptyLabel {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--text-faint);
+}
+
+.emptyText {
+  font-family: var(--font-narrow);
+  font-size: 26px;
+  color: var(--text-past);
+}

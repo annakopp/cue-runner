@@ -1,0 +1,98 @@
+.transport {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: clamp(8px, 1.5vh, 16px) 26px;
+  border-bottom: 1px solid var(--border);
+  flex: none;
+}
+
+.label {
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+}
+
+.clock {
+  font-size: clamp(26px, 4vh, 38px);
+  font-weight: 600;
+  color: var(--text-hi);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.ctlBtn {
+  border: 1px solid var(--border-ctl);
+  padding: 11px 14px;
+  font-size: 13px;
+  color: var(--text);
+  cursor: pointer;
+  user-select: none;
+}
+
+.ctlBtn:hover {
+  border-color: var(--border-ctl-hi);
+  color: var(--text-hi);
+}
+
+.resetBtn {
+  composes: ctlBtn;
+  color: var(--text-mid);
+}
+
+.transportBtn {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 24px;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  color: var(--text-hi);
+  cursor: pointer;
+  user-select: none;
+}
+
+.transportBtn:hover {
+  filter: brightness(1.25);
+}
+
+.transportGlyph {
+  font-size: 12px;
+  line-height: 1;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.titleBlock {
+  font-family: var(--font-narrow);
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-past);
+  text-align: right;
+}
+
+.titleSub {
+  color: var(--text-past-dim);
+}
+
+.syncInput {
+  width: 132px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-ctl);
+  color: var(--text-hi);
+  font-family: var(--font-mono);
+  font-size: 18px;
+  padding: 7px 10px;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
