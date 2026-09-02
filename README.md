@@ -63,24 +63,44 @@ or keep it as a backup.
 Cues must be in chronological order by `timestamp`. Any of `action`, `scene`, `item`, `category`,
 `who` may be blank — a blank `action` renders as a watch-only cue with no instruction.
 
-For a cue with more than one person doing different things, add an explicit `groups` array (the
-flat `item`/`category`/`who` strings can't otherwise say which item belongs to whom):
+For a cue whose items span more than one category (a single operator handling two different kinds
+of props at once, say), add an explicit `groups` array — the flat `item`/`category`/`who` strings
+can't otherwise say which items go with which category:
 
 ```json
 {
   "timestamp": "02:33:10",
-  "action": "strobe + fan + orange light + magnet-pull ring, cut abruptly when ring comes off",
-  "scene": "Frodo sits on Amon Hen wearing the ring",
+  "action": "Strobe light continues. Turn on fan. Pull ring with magnet...",
+  "scene": "Frodo sits on Amon Hen while wearing the ring.",
   "groups": [
-    { "who": "Andrey", "category": "lighting, fire and wind", "items": ["🌬 small electric fan", "🔦 color changing flashlight"] },
-    { "who": "Anna Green", "category": "ring", "items": ["🧲 magnet", "💍 ring (magnetable)"] }
+    { "who": "Matt", "category": "lighting, fire and wind", "items": ["🌬 small electric fan", "🔦 color changing flashlight"] },
+    { "who": "Matt", "category": "ring", "items": ["🧲 magnet", "💍 ring (magnetable)"] }
   ]
 }
 ```
 
-**If your source of truth is a Notion table:** export it (or copy/paste into a script) to this
-JSON shape, then load it with **LOAD CUE LIST**. Column mapping is 1:1 with the fields above.
-Category colors are keyed by the exact category string, lowercased — see
+### Source of truth: Notion
+
+`src/data/defaultCues.json` is the full, current export (125 cues) of the "🧝‍♀️ Scene Ideas"
+Notion database, pulled via Notion MCP. That database's real shape is a bit richer than the flat
+JSON above:
+
+- Timestamp, action idea, and scene are direct columns.
+- **Items** is a relation to a separate Items database (so item names are shared/reusable across
+  cues, not retyped each time).
+- Each Item in turn relates to an **Item Categories** database — that's where the category (and
+  its color, in this app) actually comes from, *not* the cue-level "Caregory" select field on
+  Scene Ideas (that one's a coarser food/effect/drink/ring/action/under-development tag used for
+  Notion's own filtering and isn't used here).
+- **Name** is a real Notion person property, resolved to a display name.
+- Notion has no emoji field anywhere in this schema — the 🪑🧴✨ etc. are assigned per item name in
+  the export step, not sourced from Notion. If you rename or add items, you're choosing their emoji
+  too.
+
+To refresh from Notion: re-run the same query/export shape (Scene Ideas rows joined against Items
+and Item Categories, person IDs resolved to names, sorted by timestamp, multi-category cues turned
+into `groups`) and either replace `src/data/defaultCues.json` or load the result via **LOAD CUE
+LIST** at runtime. Category colors are keyed by the exact category string, lowercased — see
 [`src/lib/categoryColors.ts`](src/lib/categoryColors.ts) to add or change one.
 
 ## Deployment

@@ -2,24 +2,1170 @@
   "film": "The Fellowship of the Ring",
   "runtime": "02:58:00",
   "cues": [
-    { "timestamp": "00:08:45", "action": "shake chair", "scene": "Frodo jumps in wagon", "item": "🪑 chair", "category": "furniture", "who": "Matt" },
-    { "timestamp": "00:10:00", "action": "spray woodsy perfume", "scene": "shire vibes", "item": "🧴 woodsy perfume", "category": "misc", "who": "Anna Kopp" },
-    { "timestamp": "00:10:56", "action": "light sparkler", "scene": "kid fireworks", "item": "✨ sparkler", "category": "lighting, fire and wind", "who": "Andrey" },
-    { "timestamp": "00:12:57", "action": "smack (gently) w/ pool noodle", "scene": "gandalf hits chandelier", "item": "〰️ pool noodle", "category": "human", "who": "Ben" },
-    { "timestamp": "00:13:04", "action": "smack (harder) w/ pool noodle", "scene": "gandalf hits head", "item": "〰️ pool noodle", "category": "human", "who": "Ben" },
-    { "timestamp": "00:13:32", "action": "serve sponge cake", "scene": "sponge cake", "item": "🍰 sponge cake", "category": "food & drink", "who": "Ben" },
-    { "timestamp": "00:14:07", "action": "serve first cup of tea", "scene": "", "item": "🍵 tea", "category": "food & drink", "who": "Ben" },
-    { "timestamp": "00:15:33", "action": "light and pass joint, one puff then take back", "scene": "bilbo & gandalf smoking", "item": "🌿 weed", "category": "lighting, fire and wind", "who": "Andrey" },
-    { "timestamp": "00:22:38", "action": "", "scene": "tall/scary/shadow gandalf", "item": "", "category": "", "who": "" },
-    { "timestamp": "00:44:45", "action": "carrot snack", "scene": "", "item": "🥕 carrot", "category": "food & drink", "who": "Ben" },
-    { "timestamp": "01:02:10", "action": "spray water mist over the room", "scene": "Bucklebury Ferry", "item": "💧 spray bottle", "category": "wet", "who": "Anna Green" },
-    { "timestamp": "01:18:52", "action": "fan on full + flicker the flashlight", "scene": "Weathertop wind", "item": "🌬 small electric fan, 🔦 color changing flashlight", "category": "lighting, fire and wind", "who": "Andrey" },
-    { "timestamp": "02:33:10", "action": "strobe + fan + orange light + magnet-pull ring + Sauron dialog via headphones, cut abruptly when ring comes off", "scene": "Frodo sits on Amon Hen wearing the ring", "item": "🌬 small electric fan, 🔦 color changing flashlight, 🧲 magnet, 💍 ring (magnetable)", "category": "lighting, fire and wind/ring", "who": "Andrey/Anna Green",
+    {
+      "timestamp": "00:08:45",
+      "action": "shake chair",
+      "scene": "Frodo jumps in wagon",
+      "item": "🪑 chair",
+      "category": "furniture",
+      "who": "Anna Kopp"
+    },
+    {
+      "timestamp": "00:10:00",
+      "action": "spray woodsy perfume",
+      "scene": "shire vibes",
+      "item": "🧴 perfume",
+      "category": "wet",
+      "who": "Anna Kopp"
+    },
+    {
+      "timestamp": "00:10:56",
+      "action": "light sparkler",
+      "scene": "kid fireworks",
+      "item": "✨ sparkler",
+      "category": "lighting, fire and wind",
+      "who": "Anna Kopp"
+    },
+    {
+      "timestamp": "00:12:57",
+      "action": "smack (gently) w/ pool noodle",
+      "scene": "gandalf hits chandelier",
+      "item": "〰️ pool noodle",
+      "category": "fighting",
+      "who": "Anna Kopp"
+    },
+    {
+      "timestamp": "00:13:04",
+      "action": "smack (harder) w/ pool noodle",
+      "scene": "gandalf hits head",
+      "item": "〰️ pool noodle",
+      "category": "fighting",
+      "who": "Anna Kopp"
+    },
+    {
+      "timestamp": "00:13:32",
+      "action": "serve sponge cake",
+      "scene": "spoge cake",
+      "item": "🍰 sponge cake",
+      "category": "food & drink",
+      "who": "Anna Kopp"
+    },
+    {
+      "timestamp": "00:14:07",
+      "action": "serve first cup of tea",
+      "scene": "bilbo serves tea",
+      "item": "🍵 tea",
+      "category": "food & drink",
+      "who": "Anna Kopp"
+    },
+    {
+      "timestamp": "00:15:33",
+      "action": "light and pass joint, one puff then take back",
+      "scene": "bilbo & gandalf smoking",
+      "item": "🌿 weed",
+      "category": "lighting, fire and wind",
+      "who": "Anna Kopp"
+    },
+    {
+      "timestamp": "00:16:02",
+      "action": "light sparkler",
+      "scene": "sparkles rain down",
+      "item": "✨ sparkler",
+      "category": "lighting, fire and wind",
+      "who": "Anna Kopp"
+    },
+    {
+      "timestamp": "00:16:04",
+      "action": "serve birthday cake",
+      "scene": "birthday cake",
+      "item": "🎂 birthday cake",
+      "category": "food & drink",
+      "who": "Anna Kopp"
+    },
+    {
+      "timestamp": "00:16:50",
+      "action": "bring beer",
+      "scene": "party",
+      "item": "🍺 beer in fancy mug",
+      "category": "food & drink",
+      "who": "Anna Kopp"
+    },
+    {
+      "timestamp": "00:18:12",
+      "action": "drag blanket over head",
+      "scene": "fireworks dragon",
+      "item": "🧣 blanket",
+      "category": "furniture",
+      "who": "Anna Kopp"
+    },
+    {
+      "timestamp": "00:20:16",
+      "action": "give sid the one ring",
+      "scene": "bilbo puts on ring & dissapears",
+      "item": "💍 ring (magnetable)",
+      "category": "ring",
+      "who": "Anna Kopp"
+    },
+    {
+      "timestamp": "00:20:32",
+      "action": "sneakily open door",
+      "scene": "invisible bilbo comes home",
+      "item": "🚪 door",
+      "category": "furniture",
+      "who": "Anna Kopp"
+    },
+    {
+      "timestamp": "00:22:38",
+      "action": "",
+      "scene": "tall/scary/shadow gandalf",
+      "item": "",
+      "category": "",
+      "who": "Anna Kopp"
+    },
+    {
+      "timestamp": "00:26:13",
+      "action": "Ask sid to put ring in envelope",
+      "scene": "frodo puts ring in envelope",
+      "item": "✉️ envelope, 💍 ring (magnetable)",
+      "category": "ring",
+      "who": "Anna Kopp"
+    },
+    {
+      "timestamp": "00:28:11",
+      "action": "spray with spray bottle",
+      "scene": "book dust",
+      "item": "💧 spray bottle",
+      "category": "wet",
+      "who": "Anna Kopp"
+    },
+    {
+      "timestamp": "00:28:27",
+      "action": "blow with fan",
+      "scene": "spooky horse rider (forget name) whispers “shire, baggins”",
+      "item": "🌬 small electric fan",
+      "category": "lighting, fire and wind",
+      "who": "Anna Kopp"
+    },
+    {
+      "timestamp": "00:30:14",
+      "action": "put arm on shoulder",
+      "scene": "gandalf startles frodo",
+      "item": "✋ hand",
+      "category": "human",
+      "who": "Anna Kopp"
+    },
+    {
+      "timestamp": "00:31:00",
+      "action": "Give ring back to sid (as a necklace?)",
+      "scene": "frodo gets ring",
+      "item": "💍 ring (magnetable)",
+      "category": "ring",
+      "who": "Anna Kopp"
+    },
+    {
+      "timestamp": "00:31:45",
+      "action": "slam door",
+      "scene": "all doors slam",
+      "item": "🚪 door",
+      "category": "furniture",
+      "who": "Anna Kopp"
+    },
+    {
+      "timestamp": "00:31:49",
+      "action": "refill teacups",
+      "scene": "frodo serves tea",
+      "item": "🍵 tea",
+      "category": "food & drink",
+      "who": "Anna Kopp"
+    },
+    {
+      "timestamp": "00:33:45",
+      "action": "pinch sid",
+      "scene": "???",
+      "item": "✋ hand",
+      "category": "human",
+      "who": "Anna Kopp"
+    },
+    {
+      "timestamp": "00:35:40",
+      "action": "rustle kale",
+      "scene": "discovering sam",
+      "item": "🥬 kale",
+      "category": "food & drink",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "00:35:50",
+      "action": "whack with pool noodle",
+      "scene": "gandalf hits sam w/ stick",
+      "item": "〰️ pool noodle",
+      "category": "fighting",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "00:38:30",
+      "action": "fan in face",
+      "scene": "gandalf riding to isengard",
+      "item": "🌬 small electric fan",
+      "category": "lighting, fire and wind",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "00:39:26",
+      "action": "light and pass joint, one puff then take back",
+      "scene": "“your love of the halflings leaf”",
+      "item": "🌿 weed",
+      "category": "lighting, fire and wind",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "00:40:48",
+      "action": "throw a blanket over",
+      "scene": "gandalf covers the palantir",
+      "item": "🧣 blanket",
+      "category": "furniture",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "00:42:12",
+      "action": "slap back somehow",
+      "scene": "saruman throws gandalf to the wall",
+      "item": "〰️ pool noodle",
+      "category": "fighting",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "00:42:20",
+      "action": "whack legs with pool noodle",
+      "scene": "gandalf strikes back at saruman’s feet",
+      "item": "〰️ pool noodle",
+      "category": "fighting",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "00:42:20",
+      "action": "various pool noodle whacks for 10 seconds",
+      "scene": "",
+      "item": "〰️ pool noodle",
+      "category": "fighting",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "00:42:52",
+      "action": "spin him in chair",
+      "scene": "saruman spins gandalf",
+      "item": "🪑 chair",
+      "category": "furniture",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "00:43:42",
+      "action": "bonk with foam ball",
+      "scene": "merry + pippin run into sam + frodo in the field",
+      "item": "⚾ foam ball",
+      "category": "fighting",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "00:44:07",
+      "action": "drag leaves (kale) across face for 10 seconds",
+      "scene": "running through the corn field",
+      "item": "🥬 kale",
+      "category": "food & drink",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "00:44:26",
+      "action": "spin in chair and bonk with pool noodle",
+      "scene": "rolling down hill",
+      "item": "🪑 chair, 〰️ pool noodle",
+      "category": "furniture · fighting",
+      "who": "Ben",
       "groups": [
-        { "who": "Andrey", "category": "lighting, fire and wind", "items": ["🌬 small electric fan", "🔦 color changing flashlight"] },
-        { "who": "Anna Green", "category": "ring", "items": ["🧲 magnet", "💍 ring (magnetable)"] }
+        {
+          "who": "Ben",
+          "category": "furniture",
+          "items": [
+            "🪑 chair"
+          ]
+        },
+        {
+          "who": "Ben",
+          "category": "fighting",
+          "items": [
+            "〰️ pool noodle"
+          ]
+        }
       ]
     },
-    { "timestamp": "02:35:20", "action": "give Sid a play sword, sword fight 1-2 people", "scene": "Aragorn fights the Uruk Hai", "item": "⚔️ plastic sword", "category": "fighting", "who": "Ben" }
+    {
+      "timestamp": "00:44:45",
+      "action": "carrot snack",
+      "scene": "",
+      "item": "🥕 carrot",
+      "category": "food & drink",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "00:46:10",
+      "action": "crawl fingers on shoulders",
+      "scene": "black rider searching",
+      "item": "✋ hand",
+      "category": "human",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "00:46:15",
+      "action": "serve oreo dirt cup",
+      "scene": "",
+      "item": "🍫 oreo dirt cup",
+      "category": "food & drink",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "00:49:18",
+      "action": "spritz with water",
+      "scene": "raining in bree",
+      "item": "💧 spray bottle",
+      "category": "wet",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "00:51:47",
+      "action": "bring large beer",
+      "scene": "\"it comes in pints”",
+      "item": "🍺 beer in fancy mug",
+      "category": "food & drink",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "00:53:37",
+      "action": "cover with blanket",
+      "scene": "frodo catches ring on finger",
+      "item": "🧣 blanket",
+      "category": "furniture",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "00:53:49",
+      "action": "fan in face",
+      "scene": "in the ring world",
+      "item": "🌬 small electric fan",
+      "category": "lighting, fire and wind",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "00:54:19",
+      "action": "grab shoulder",
+      "scene": "aragorn grabs frodo",
+      "item": "✋ hand",
+      "category": "human",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "00:54:40",
+      "action": "put out candle",
+      "scene": "",
+      "item": "🕯️ candle",
+      "category": "lighting, fire and wind",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "00:56:02",
+      "action": "poke in stomach",
+      "scene": "black riders stab beds",
+      "item": "〰️ pool noodle",
+      "category": "fighting",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "00:58:27",
+      "action": "throw apple",
+      "scene": "second breakfast",
+      "item": "🍎 apple",
+      "category": "food & drink",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "00:59:43",
+      "action": "spritz water",
+      "scene": "raining on top of isengard",
+      "item": "💧 spray bottle",
+      "category": "wet",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "01:01:02",
+      "action": "whack pool noodle",
+      "scene": "nazgul fight on weathertop",
+      "item": "〰️ pool noodle",
+      "category": "fighting",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "01:03:00",
+      "action": "fan in face",
+      "scene": "ring on on weathertop",
+      "item": "🌬 small electric fan",
+      "category": "lighting, fire and wind",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "01:03:17",
+      "action": "ice pack on hand",
+      "scene": "nazgul reaches for ring",
+      "item": "🧊 ice pack",
+      "category": "wet",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "01:03:24",
+      "action": "poke in shoulder",
+      "scene": "frodo stabbed",
+      "item": "〰️ pool noodle",
+      "category": "fighting",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "01:03:47",
+      "action": "wave a flashlight around",
+      "scene": "aragorn comes with torch",
+      "item": "🔦 color changing flashlight",
+      "category": "lighting, fire and wind",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "01:05:34",
+      "action": "fan in face on slow mode",
+      "scene": "moth flying to gandalf",
+      "item": "🌬 small electric fan",
+      "category": "lighting, fire and wind",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "01:06:52",
+      "action": "put slime on his face",
+      "scene": "birth of uruk hai",
+      "item": "🫧 slime",
+      "category": "wet",
+      "who": "Ben"
+    },
+    {
+      "timestamp": "01:08:00",
+      "action": "Wave lighter in front of Sid’s face",
+      "scene": "Aragorn holding torch while looking for Athelas",
+      "item": "🔥 lighter",
+      "category": "lighting, fire and wind",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:08:09",
+      "action": "Sword on Sid’s neck",
+      "scene": "Arwen putting sword on Aragorn’s neck",
+      "item": "⚔️ foam sword",
+      "category": "fighting",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:08:18",
+      "action": "Flashlight in Sid’s face",
+      "scene": "Arwen approaching Frodo with glowing light",
+      "item": "🔦 color changing flashlight",
+      "category": "lighting, fire and wind",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:09:56",
+      "action": "Shake Sid’s chair basically constantly until 01:11:45",
+      "scene": "Arwen riding off with Frodo",
+      "item": "🪑 chair",
+      "category": "furniture",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:10:47",
+      "action": "Scratch Sid’s face with kale",
+      "scene": "Arwen’s cheek scratched by tree",
+      "item": "🥬 kale",
+      "category": "food & drink",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:12:44",
+      "action": "Spray water in Sid’s face",
+      "scene": "Ringwraiths get effed up by the river horses",
+      "item": "💧 spray bottle",
+      "category": "wet",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:13:23",
+      "action": "Hug sid and maybe a light spray with spray bottle",
+      "scene": "Arwen hugs Frodo and cries a single tear",
+      "item": "✋ hand, 💧 spray bottle",
+      "category": "human · wet",
+      "who": "Anna Green",
+      "groups": [
+        {
+          "who": "Anna Green",
+          "category": "human",
+          "items": [
+            "✋ hand"
+          ]
+        },
+        {
+          "who": "Anna Green",
+          "category": "wet",
+          "items": [
+            "💧 spray bottle"
+          ]
+        }
+      ]
+    },
+    {
+      "timestamp": "01:14:01",
+      "action": "light and pass joint, one puff then take back",
+      "scene": "Gandalf smoking pipe",
+      "item": "🌿 weed",
+      "category": "lighting, fire and wind",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:15:16",
+      "action": "Push sid off chair",
+      "scene": "Gandalf jumps off tower of Orthanc",
+      "item": "🪑 chair",
+      "category": "furniture",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:15:19",
+      "action": "Put sid back on chair, maybe rock it back and forth",
+      "scene": "Eagle catches Gandalf, flies away",
+      "item": "🪑 chair",
+      "category": "furniture",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:16:43",
+      "action": "Hug sid",
+      "scene": "Hobbits hug",
+      "item": "✋ hand",
+      "category": "human",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:23:28",
+      "action": "Pinch sid’s finger?",
+      "scene": "Boromir cuts his finger on the shards of narsil",
+      "item": "✋ hand",
+      "category": "human",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:25:59",
+      "action": "Give sid a necklace?",
+      "scene": "Arwen gives Aragorn necklace",
+      "item": "📿 necklace",
+      "category": "ring",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:29:17",
+      "action": "Hit sid with pool noodle",
+      "scene": "Gimli tries to axe the ring",
+      "item": "〰️ pool noodle",
+      "category": "fighting",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:31:18",
+      "action": "Wave lighter in front of Sid’s face",
+      "scene": "Ring being engulfed by flame",
+      "item": "🔥 lighter",
+      "category": "lighting, fire and wind",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:32:02",
+      "action": "Person one puts hand on sid’s shoulder",
+      "scene": "Gandalf’s hand on Frodo’s shoulder",
+      "item": "✋ hand",
+      "category": "human",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:32:18",
+      "action": "Person two kneels in front of Sid",
+      "scene": "Aragorn kneels in front of sid",
+      "item": "🧍 person",
+      "category": "human",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:32:24",
+      "action": "People 3 and 4 go stand with Sid",
+      "scene": "Gimli and Legolas join the fellowship",
+      "item": "🧍 person",
+      "category": "human",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:32:37",
+      "action": "Person 5 stands with Sid",
+      "scene": "Boromir joins the fellowship",
+      "item": "🧍 person",
+      "category": "human",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:32:46",
+      "action": "Person 6 goes to sid and grabs his hand",
+      "scene": "Sam joins the fellowship",
+      "item": "🧍 person",
+      "category": "human",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:32:58",
+      "action": "Persons 7 and 8 go to sid",
+      "scene": "Merry and pippin join",
+      "item": "🧍 person",
+      "category": "human",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:33:30",
+      "action": "Everyone can go back to their seats now",
+      "scene": "End of fellowship formation scene",
+      "item": "🧍 person",
+      "category": "human",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:33:46",
+      "action": "Give sid sword",
+      "scene": "Bilbo gives Frodo sting",
+      "item": "⚔️ foam sword",
+      "category": "fighting",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:34:41",
+      "action": "Big scary shaky seat",
+      "scene": "Bilbo makes that scary face",
+      "item": "🪑 chair",
+      "category": "furniture",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:36:30",
+      "action": "Give sid a hot dog",
+      "scene": "Hobbits cooking sausages",
+      "item": "🌭 hot dog",
+      "category": "food & drink",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:37:15",
+      "action": "Pinch or hit sid",
+      "scene": "Boromir accidentally cuts pippin",
+      "item": "✋ hand",
+      "category": "human",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:37:15",
+      "action": "hit sid with pool noodle",
+      "scene": "Pippin kicks boromir",
+      "item": "〰️ pool noodle",
+      "category": "fighting",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:37:23",
+      "action": "Tickle sid",
+      "scene": "Merry and pippin “attack” boromir",
+      "item": "✋ hand",
+      "category": "human",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:38:25",
+      "action": "Turn fan on or turn ac up",
+      "scene": "Fellowship in the mountains",
+      "item": "🌬 small electric fan",
+      "category": "lighting, fire and wind",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:38:34",
+      "action": "Ice pack on sid’s neck for 5 seconds",
+      "scene": "Frodo falls in snow",
+      "item": "🧊 ice pack",
+      "category": "wet",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:39:36",
+      "action": "Ruffle sid’s hair",
+      "scene": "Boromir ruffles frodo’s hair",
+      "item": "🥬 kale",
+      "category": "food & drink",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:40:49",
+      "action": "Big shaky seats",
+      "scene": "Avalanche",
+      "item": "🪑 chair",
+      "category": "furniture",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:41:34",
+      "action": "Big shaky seats",
+      "scene": "Second avalanche",
+      "item": "🪑 chair",
+      "category": "furniture",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "01:42:00",
+      "action": "Blow cold air at face",
+      "scene": "Fellowship trek through mountains",
+      "item": "🌬 small electric fan, 💧 spray bottle",
+      "category": "lighting, fire and wind · wet",
+      "who": "Andrey",
+      "groups": [
+        {
+          "who": "Andrey",
+          "category": "lighting, fire and wind",
+          "items": [
+            "🌬 small electric fan"
+          ]
+        },
+        {
+          "who": "Andrey",
+          "category": "wet",
+          "items": [
+            "💧 spray bottle"
+          ]
+        }
+      ]
+    },
+    {
+      "timestamp": "01:45:20",
+      "action": "Shake couch",
+      "scene": "Door opens",
+      "item": "🪑 chair",
+      "category": "furniture",
+      "who": "Andrey"
+    },
+    {
+      "timestamp": "01:46:44",
+      "action": "Spray water",
+      "scene": "Creature attacks Frodo",
+      "item": "💧 spray bottle",
+      "category": "wet",
+      "who": "Andrey"
+    },
+    {
+      "timestamp": "01:47:30",
+      "action": "Shake couch",
+      "scene": "cave colapses",
+      "item": "🪑 chair",
+      "category": "furniture",
+      "who": "Andrey"
+    },
+    {
+      "timestamp": "01:51:30",
+      "action": "Spray 2nd perfume (TK smell)",
+      "scene": "Gandalf finds clean air",
+      "item": "🧴 perfume",
+      "category": "wet",
+      "who": "Andrey"
+    },
+    {
+      "timestamp": "01:55:40",
+      "action": "Pound couch frame",
+      "scene": "Orcs are waking up",
+      "item": "🪑 chair",
+      "category": "furniture",
+      "who": "Andrey"
+    },
+    {
+      "timestamp": "01:59:55",
+      "action": "Poke sid in stomach",
+      "scene": "Frodo is stabbed",
+      "item": "〰️ pool noodle",
+      "category": "fighting",
+      "who": "Andrey"
+    },
+    {
+      "timestamp": "02:01:30",
+      "action": "Pound couch frame",
+      "scene": "More orcs are coming",
+      "item": "🪑 chair",
+      "category": "furniture",
+      "who": "Andrey"
+    },
+    {
+      "timestamp": "02:02:40",
+      "action": "Shake couch",
+      "scene": "Balrog is coming",
+      "item": "🪑 chair",
+      "category": "furniture",
+      "who": "Andrey"
+    },
+    {
+      "timestamp": "02:06:05",
+      "action": "Shake couch",
+      "scene": "Ground is crumbling",
+      "item": "🪑 chair",
+      "category": "furniture",
+      "who": "Andrey"
+    },
+    {
+      "timestamp": "02:06:50",
+      "action": "Turn on space heater (lighter instead?)",
+      "scene": "They’re surrounded by flames",
+      "item": "🔥 lighter",
+      "category": "lighting, fire and wind",
+      "who": "Andrey"
+    },
+    {
+      "timestamp": "02:06:58",
+      "action": "Blow hot air at face",
+      "scene": "Balrog roars",
+      "item": "🔥 lighter, 🌬 small electric fan",
+      "category": "lighting, fire and wind",
+      "who": "Andrey"
+    },
+    {
+      "timestamp": "02:07:58",
+      "action": "Blow hot air at face",
+      "scene": "Balrog roars",
+      "item": "🔥 lighter, 🌬 small electric fan",
+      "category": "lighting, fire and wind",
+      "who": "Andrey"
+    },
+    {
+      "timestamp": "02:08:15",
+      "action": "Shake couch",
+      "scene": "Gandalf slams his rod",
+      "item": "🪑 chair",
+      "category": "furniture",
+      "who": "Andrey"
+    },
+    {
+      "timestamp": "02:09:26",
+      "action": "Blow cool air at face",
+      "scene": "Fellowship exits moria",
+      "item": "🌬 small electric fan",
+      "category": "lighting, fire and wind",
+      "who": "Andrey"
+    },
+    {
+      "timestamp": "02:15:40",
+      "action": "Sid wears voice cancelling headphones and we play the dialog \nB",
+      "scene": "Galadriel speaks to Frodo telepathically",
+      "item": "🎧 noise canceling headphones",
+      "category": "human",
+      "who": "Matt"
+    },
+    {
+      "timestamp": "02:18:30",
+      "action": "Blow hand held electric fan in Sid’s face. Accompany with scent of pine.",
+      "scene": "Frodo follows Galadriel through Lothlorien",
+      "item": "🧴 perfume, 🌬 small electric fan",
+      "category": "wet · lighting, fire and wind",
+      "who": "Matt",
+      "groups": [
+        {
+          "who": "Matt",
+          "category": "wet",
+          "items": [
+            "🧴 perfume"
+          ]
+        },
+        {
+          "who": "Matt",
+          "category": "lighting, fire and wind",
+          "items": [
+            "🌬 small electric fan"
+          ]
+        }
+      ]
+    },
+    {
+      "timestamp": "02:20:30",
+      "action": "Magnetizable ring pulled via magnet. Turn on bright orange light to mimic Sauron’s visual presence.",
+      "scene": "Ring around Frodo’s neck gets pulled into Galadriel’s mirror.",
+      "item": "💍 ring (magnetable), 🧲 magnet, 🔦 color changing flashlight",
+      "category": "ring · lighting, fire and wind",
+      "who": "Matt",
+      "groups": [
+        {
+          "who": "Matt",
+          "category": "ring",
+          "items": [
+            "💍 ring (magnetable)",
+            "🧲 magnet"
+          ]
+        },
+        {
+          "who": "Matt",
+          "category": "lighting, fire and wind",
+          "items": [
+            "🔦 color changing flashlight"
+          ]
+        }
+      ]
+    },
+    {
+      "timestamp": "02:21:51",
+      "action": "Strobe light.  (Strobe light effect: turn flashlight on and off)\n\nNoise cancelling headphones on Sid. Play dialog through them. \n\nSomeone stands over Sid dressed in robes as a fan billows them.",
+      "scene": "Galadriel’s dark queen speech",
+      "item": "🔦 color changing flashlight, 🌬 small electric fan, 🎧 noise canceling headphones",
+      "category": "lighting, fire and wind · human",
+      "who": "Matt",
+      "groups": [
+        {
+          "who": "Matt",
+          "category": "lighting, fire and wind",
+          "items": [
+            "🔦 color changing flashlight",
+            "🌬 small electric fan"
+          ]
+        },
+        {
+          "who": "Matt",
+          "category": "human",
+          "items": [
+            "🎧 noise canceling headphones"
+          ]
+        }
+      ]
+    },
+    {
+      "timestamp": "02:24:16",
+      "action": "Put helmet on Sid’s head",
+      "scene": "The Uruk Hai arming themselves",
+      "item": "🪖 helmet",
+      "category": "fighting",
+      "who": "Matt"
+    },
+    {
+      "timestamp": "02:25:15",
+      "action": "Spray light mist in Sid’s face",
+      "scene": "The fellowship leaves Lothlorien on canoe",
+      "item": "💧 spray bottle",
+      "category": "wet",
+      "who": "Matt"
+    },
+    {
+      "timestamp": "02:27:35",
+      "action": "Light mist and light fan blowing in Sid’s face",
+      "scene": "The fellowship looks upon the argonath",
+      "item": "💧 spray bottle, 🌬 small electric fan",
+      "category": "wet · lighting, fire and wind",
+      "who": "Matt",
+      "groups": [
+        {
+          "who": "Matt",
+          "category": "wet",
+          "items": [
+            "💧 spray bottle"
+          ]
+        },
+        {
+          "who": "Matt",
+          "category": "lighting, fire and wind",
+          "items": [
+            "🌬 small electric fan"
+          ]
+        }
+      ]
+    },
+    {
+      "timestamp": "02:29:00",
+      "action": "Turn on space heater or give Sid something warm to hold.",
+      "scene": "The fellowship regains their energy sitting next to a fire, after the canoes make landfall",
+      "item": "🍵 tea, 🍞 lembas bread",
+      "category": "food & drink",
+      "who": "Matt"
+    },
+    {
+      "timestamp": "02:32:52",
+      "action": "Strobe light effect: turn flashlight on and off",
+      "scene": "Frodo puts on the ring after Boromir attempts to take it",
+      "item": "🔦 color changing flashlight",
+      "category": "lighting, fire and wind",
+      "who": "Matt"
+    },
+    {
+      "timestamp": "02:33:10",
+      "action": "Strobe light continues. Turn on fan. Turn on orange light. Pull ring with magnet. Sid hears Sauron’s speech through noise cancelling headphones. Turn off all effects abruptly when Frodo takes off ring.",
+      "scene": "Frodo sits on Amon Hen while wearing the ring.",
+      "item": "🌬 small electric fan, 🔦 color changing flashlight, 🧲 magnet, 💍 ring (magnetable)",
+      "category": "lighting, fire and wind · ring",
+      "who": "Matt",
+      "groups": [
+        {
+          "who": "Matt",
+          "category": "lighting, fire and wind",
+          "items": [
+            "🌬 small electric fan",
+            "🔦 color changing flashlight"
+          ]
+        },
+        {
+          "who": "Matt",
+          "category": "ring",
+          "items": [
+            "🧲 magnet",
+            "💍 ring (magnetable)"
+          ]
+        }
+      ]
+    },
+    {
+      "timestamp": "02:35:00",
+      "action": "Turn on bright blue light to mimic Sting’s glow",
+      "scene": "Sting glows blue as the Uruk Hai approach",
+      "item": "🔦 color changing flashlight",
+      "category": "lighting, fire and wind",
+      "who": "Matt"
+    },
+    {
+      "timestamp": "02:35:20",
+      "action": "Give Sid a play sword. Have him sword fight one or two people.",
+      "scene": "Aragorn fights the Uruk Hai",
+      "item": "⚔️ foam sword",
+      "category": "fighting",
+      "who": "Matt"
+    },
+    {
+      "timestamp": "02:36:20",
+      "action": "Sid hides behind a chair as everyone noisily looks around the room",
+      "scene": "Frodo hides behind a tree as the Uruk Hai pass",
+      "item": "🪑 chair",
+      "category": "furniture",
+      "who": "Matt"
+    },
+    {
+      "timestamp": "02:37:20",
+      "action": "Give Sid back the sword. More sword fighting.",
+      "scene": "The fellowship continues fighting the Uruk Hai",
+      "item": "⚔️ foam sword",
+      "category": "fighting",
+      "who": "Matt"
+    },
+    {
+      "timestamp": "02:37:45",
+      "action": "One of the cast members with swords is about to “kill” another cast member. Sid uses his sword to save them.",
+      "scene": "Boromir saves Merry and Pippen from the Uruk Hai",
+      "item": "⚔️ foam sword",
+      "category": "fighting",
+      "who": "Matt"
+    },
+    {
+      "timestamp": "02:38:00",
+      "action": "We blow a freakin horn of Gondor",
+      "scene": "Boromir blows the horn of Gondor",
+      "item": "📯 horn",
+      "category": "fighting",
+      "who": "Matt"
+    },
+    {
+      "timestamp": "02:38:30",
+      "action": "More sword fighting. Fire a toy bow and arrow at Sid each time an arrow hits Boromir. Sid fights heroically until Boromir is unable to. The other cast members mimic Merry and Pippen’s cries of bravery.",
+      "scene": "Boromir dies fighting the Uruk Hai as the head Uruk Hai fires arrows at him.",
+      "item": "〰️ pool noodle",
+      "category": "fighting",
+      "who": "Matt"
+    },
+    {
+      "timestamp": "02:40:52",
+      "action": "Someone stands over Sid with the toy bow and arrow, ready to fire the kill shot. Someone else will play Aragorn, stopping the Uruk Hai from firing the shot. Aragorn and Uruk sword fight over Sid. Aragorn kills Uruk Hai.",
+      "scene": "Aragorn saves Boromir",
+      "item": "〰️ pool noodle",
+      "category": "fighting",
+      "who": "Matt"
+    },
+    {
+      "timestamp": "02:43:40",
+      "action": "Sid sits in chair. Put a sword into Sid’s hand as Boromir dies",
+      "scene": "Boromir dies",
+      "item": "⚔️ foam sword",
+      "category": "fighting",
+      "who": "Matt"
+    },
+    {
+      "timestamp": "02:45:00",
+      "action": "Put ring in Sid’s palm",
+      "scene": "Frodo stands on the banks of the Anduin, reflecting on what just happened.",
+      "item": "💍 ring (magnetable)",
+      "category": "ring",
+      "who": "Matt"
+    },
+    {
+      "timestamp": "02:46:55",
+      "action": "Sid sits in chair. Sid puts his hand in a cold bucket. Someone gets into the chair with Sid. It’s cramped. Heavy misting for all.",
+      "scene": "Frodo saves Sam from drowning in Anduin",
+      "item": "🧊 ice pack, 💧 spray bottle, 🧍 person",
+      "category": "wet · human",
+      "who": "Matt",
+      "groups": [
+        {
+          "who": "Matt",
+          "category": "wet",
+          "items": [
+            "🧊 ice pack",
+            "💧 spray bottle"
+          ]
+        },
+        {
+          "who": "Matt",
+          "category": "human",
+          "items": [
+            "🧍 person"
+          ]
+        }
+      ]
+    },
+    {
+      "timestamp": "02:47:30",
+      "action": "Sid and whoever is in the chair hug. More misting.",
+      "scene": "Sam and Frodo hug after Sam tells Frodo he won’t leave him.",
+      "item": "🧍 person, 💧 spray bottle",
+      "category": "human · wet",
+      "who": "Matt",
+      "groups": [
+        {
+          "who": "Matt",
+          "category": "human",
+          "items": [
+            "🧍 person"
+          ]
+        },
+        {
+          "who": "Matt",
+          "category": "wet",
+          "items": [
+            "💧 spray bottle"
+          ]
+        }
+      ]
+    },
+    {
+      "timestamp": "02:49:40",
+      "action": "Turn on smoke machine. Blow fan in his face. Turn on orange light so it can be seen through the smoke.",
+      "scene": "Frodo and Sam look out at Mordor from the Emyn Muil mountains",
+      "item": "🌬 small electric fan, 🔦 color changing flashlight",
+      "category": "lighting, fire and wind",
+      "who": "Matt"
+    }
   ]
 }
