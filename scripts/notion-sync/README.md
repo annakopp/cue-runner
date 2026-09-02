@@ -34,24 +34,30 @@ through — check `has_more` and keep paging; concatenate all pages into one arr
 SELECT url, "Item", "Item Categories" FROM "collection://87c8f1b2-b028-4c6a-9900-abaafb4f710e"
 ```
 
-**`raw-categories.json`** — the category names:
+**`raw-categories.json`** — the category names **and their operator**:
 ```sql
-SELECT url, "Name" FROM "collection://3cf42e11-97a7-8062-a77d-000b288bea78"
+SELECT url, "Name", "User" FROM "collection://3cf42e11-97a7-8062-a77d-000b288bea78"
 ```
 
 If `query_data_sources` refuses a query (it can require a paid Notion plan for some modes), fetch
 each data source with `notion-fetch` first to confirm the IDs haven't changed, then fall back to
 single-data-source queries — that's what the app was actually built from.
 
-Important: color-coding uses **Items → Item Categories** (the query above), *not* the "Caregory"
-column that also lives on Scene Ideas rows — that one's a coarser tag used for Notion's own
-filtering and isn't the taxonomy this app renders.
+Two things worth being deliberate about, both easy to get backwards:
+
+- Color-coding uses **Items → Item Categories** (the query above), *not* the "Caregory" column
+  that also lives on Scene Ideas rows — that one's a coarser tag used for Notion's own filtering
+  and isn't the taxonomy this app renders.
+- **The operator ("who") comes from Item Categories' own `User` field — who's responsible for that
+  *category* of props (e.g. "wet" effects are always the same person) — not from Scene Ideas'
+  `Name` column, which just records who logged the cue idea and is not used by the build script at
+  all.** A cue whose items span two categories gets one operator per category, via `groups`.
 
 ## 2. Check for new items or people
 
 `raw-items.json` may contain item names not yet in [`item-emoji.json`](item-emoji.json) — Notion
 has no emoji field, so every item's emoji is a manual choice recorded here. Likewise
-`raw-scene-ideas.json`'s `Name` column may contain a person id not yet in
+`raw-categories.json`'s `User` column may contain a person id not yet in
 [`people.json`](people.json) — Notion's user-list API doesn't reliably return guests, so this
 mapping was built from the database's per-person filtered views (fetch the database URL above and
 read the `<view>` names/filters) rather than a users API call.

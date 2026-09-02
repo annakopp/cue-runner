@@ -92,7 +92,10 @@ JSON above:
   its color, in this app) actually comes from, *not* the cue-level "Caregory" select field on
   Scene Ideas (that one's a coarser food/effect/drink/ring/action/under-development tag used for
   Notion's own filtering and isn't used here).
-- **Name** is a real Notion person property, resolved to a display name.
+- **Who's responsible is a property of the category, not the cue.** Each Item Category row has its
+  own `User` person field — e.g. "wet" effects are always the same person's job — and that's who
+  shows up as the operator in this app. Scene Ideas' own `Name` column (who logged the idea) isn't
+  used for this. A cue whose items span two categories gets two operators, one per category.
 - Notion has no emoji field anywhere in this schema — the 🪑🧴✨ etc. are assigned per item name in
   the export step, not sourced from Notion. If you rename or add items, you're choosing their emoji
   too.

@@ -35,6 +35,20 @@ function hms(t) {
 // category page url -> category name (e.g. "food & drink")
 const categoryNameByUrl = new Map(rawCategories.map((c) => [c.url, c.Name]));
 
+const missingPeople = new Set();
+function resolvePerson(nameJson) {
+  const ids = nameJson ? JSON.parse(nameJson) : [];
+  if (!ids.length) return "";
+  const resolved = people[ids[0]];
+  if (!resolved) missingPeople.add(ids[0]);
+  return resolved ?? "";
+}
+
+// category name -> operator display name. The operator is the person assigned to a *category*
+// in the Item Categories table (who handles all "wet" effects, say) — not anything on the cue
+// row itself, which just records who logged the idea.
+const categoryOperator = new Map(rawCategories.map((c) => [c.Name, resolvePerson(c.User)]));
+
 // item page url -> { name, category }
 const itemByUrl = new Map();
 const missingEmoji = new Set();
@@ -48,18 +62,8 @@ for (const it of rawItems) {
   itemByUrl.set(it.url, { name, category, emoji: emoji ?? "•" });
 }
 
-const missingPeople = new Set();
-function resolvePerson(nameJson) {
-  const ids = nameJson ? JSON.parse(nameJson) : [];
-  if (!ids.length) return "";
-  const resolved = people[ids[0]];
-  if (!resolved) missingPeople.add(ids[0]);
-  return resolved ?? "";
-}
-
 const cues = sceneIdeas.map((row) => {
   const t = secsOf(row.Timestamp);
-  const who = resolvePerson(row.Name);
   const itemUrls = row.Items ? JSON.parse(row.Items) : [];
   const resolved = itemUrls.map((u) => itemByUrl.get(u) ?? { name: u, category: "", emoji: "•" });
   const categoriesPresent = [...new Set(resolved.map((r) => r.category))];
@@ -71,11 +75,12 @@ const cues = sceneIdeas.map((row) => {
   };
 
   if (categoriesPresent.length <= 1) {
+    const cat = categoriesPresent[0] || "";
     return {
       ...base,
       item: resolved.map((r) => `${r.emoji} ${r.name}`).join(", "),
-      category: categoriesPresent[0] || "",
-      who,
+      category: cat,
+      who: categoryOperator.get(cat) ?? "",
     };
   }
 
@@ -83,9 +88,9 @@ const cues = sceneIdeas.map((row) => {
     ...base,
     item: resolved.map((r) => `${r.emoji} ${r.name}`).join(", "),
     category: categoriesPresent.join(" · "),
-    who,
+    who: categoriesPresent.map((cat) => categoryOperator.get(cat) ?? "").join(" · "),
     groups: categoriesPresent.map((cat) => ({
-      who,
+      who: categoryOperator.get(cat) ?? "",
       category: cat,
       items: resolved.filter((r) => r.category === cat).map((r) => `${r.emoji} ${r.name}`),
     })),
