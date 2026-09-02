@@ -97,11 +97,16 @@ JSON above:
   the export step, not sourced from Notion. If you rename or add items, you're choosing their emoji
   too.
 
-To refresh from Notion: re-run the same query/export shape (Scene Ideas rows joined against Items
-and Item Categories, person IDs resolved to names, sorted by timestamp, multi-category cues turned
-into `groups`) and either replace `src/data/defaultCues.json` or load the result via **LOAD CUE
-LIST** at runtime. Category colors are keyed by the exact category string, lowercased — see
-[`src/lib/categoryColors.ts`](src/lib/categoryColors.ts) to add or change one.
+**To refresh from Notion**, ask Claude to re-sync using [`scripts/notion-sync/`](scripts/notion-sync/)
+— that folder has the transform script, the two hand-maintained mapping files (item→emoji,
+person id→name) and a runbook for the exact Notion queries. Once the raw exports are in place:
+
+```bash
+npm run sync:notion
+```
+
+regenerates `src/data/defaultCues.json`. Category colors are keyed by the exact category string,
+lowercased — see [`src/lib/categoryColors.ts`](src/lib/categoryColors.ts) to add or change one.
 
 ## Deployment
 
