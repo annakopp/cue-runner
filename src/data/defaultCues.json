@@ -16,7 +16,7 @@
       "scene": "shire vibes",
       "item": "🧴 perfume",
       "category": "wet",
-      "who": "Anna Kopp"
+      "who": "Douglas Spangler"
     },
     {
       "timestamp": "00:10:56",
@@ -136,7 +136,7 @@
       "scene": "book dust",
       "item": "💧 spray bottle",
       "category": "wet",
-      "who": "Anna Kopp"
+      "who": "Douglas Spangler"
     },
     {
       "timestamp": "00:28:27",
@@ -328,7 +328,7 @@
       "scene": "raining in bree",
       "item": "💧 spray bottle",
       "category": "wet",
-      "who": "Anna Kopp"
+      "who": "Douglas Spangler"
     },
     {
       "timestamp": "00:51:47",
@@ -392,7 +392,7 @@
       "scene": "raining on top of isengard",
       "item": "💧 spray bottle",
       "category": "wet",
-      "who": "Anna Kopp"
+      "who": "Douglas Spangler"
     },
     {
       "timestamp": "01:01:02",
@@ -416,7 +416,7 @@
       "scene": "nazgul reaches for ring",
       "item": "🧊 ice pack",
       "category": "wet",
-      "who": "Anna Kopp"
+      "who": "Douglas Spangler"
     },
     {
       "timestamp": "01:03:24",
@@ -448,7 +448,7 @@
       "scene": "birth of uruk hai",
       "item": "🫧 slime",
       "category": "wet",
-      "who": "Anna Kopp"
+      "who": "Douglas Spangler"
     },
     {
       "timestamp": "01:08:00",
@@ -496,7 +496,7 @@
       "scene": "Ringwraiths get effed up by the river horses",
       "item": "💧 spray bottle",
       "category": "wet",
-      "who": "Anna Kopp"
+      "who": "Douglas Spangler"
     },
     {
       "timestamp": "01:13:23",
@@ -504,7 +504,7 @@
       "scene": "Arwen hugs Frodo and cries a single tear",
       "item": "✋ hand, 💧 spray bottle",
       "category": "human · wet",
-      "who": "Anna Green · Anna Kopp",
+      "who": "Anna Green · Douglas Spangler",
       "groups": [
         {
           "who": "Anna Green",
@@ -514,7 +514,7 @@
           ]
         },
         {
-          "who": "Anna Kopp",
+          "who": "Douglas Spangler",
           "category": "wet",
           "items": [
             "💧 spray bottle"
@@ -704,7 +704,7 @@
       "scene": "Frodo falls in snow",
       "item": "🧊 ice pack",
       "category": "wet",
-      "who": "Anna Kopp"
+      "who": "Douglas Spangler"
     },
     {
       "timestamp": "01:39:36",
@@ -736,7 +736,7 @@
       "scene": "Fellowship trek through mountains",
       "item": "🌬 small electric fan, 💧 spray bottle",
       "category": "lighting, fire and wind · wet",
-      "who": "Andrey · Anna Kopp",
+      "who": "Andrey · Douglas Spangler",
       "groups": [
         {
           "who": "Andrey",
@@ -746,7 +746,7 @@
           ]
         },
         {
-          "who": "Anna Kopp",
+          "who": "Douglas Spangler",
           "category": "wet",
           "items": [
             "💧 spray bottle"
@@ -768,7 +768,7 @@
       "scene": "Creature attacks Frodo",
       "item": "💧 spray bottle",
       "category": "wet",
-      "who": "Anna Kopp"
+      "who": "Douglas Spangler"
     },
     {
       "timestamp": "01:47:30",
@@ -784,7 +784,7 @@
       "scene": "Gandalf finds clean air",
       "item": "🧴 perfume",
       "category": "wet",
-      "who": "Anna Kopp"
+      "who": "Douglas Spangler"
     },
     {
       "timestamp": "01:55:40",
@@ -880,10 +880,10 @@
       "scene": "Frodo follows Galadriel through Lothlorien",
       "item": "🧴 perfume, 🌬 small electric fan",
       "category": "wet · lighting, fire and wind",
-      "who": "Anna Kopp · Andrey",
+      "who": "Douglas Spangler · Andrey",
       "groups": [
         {
-          "who": "Anna Kopp",
+          "who": "Douglas Spangler",
           "category": "wet",
           "items": [
             "🧴 perfume"
@@ -962,7 +962,7 @@
       "scene": "The fellowship leaves Lothlorien on canoe",
       "item": "💧 spray bottle",
       "category": "wet",
-      "who": "Anna Kopp"
+      "who": "Douglas Spangler"
     },
     {
       "timestamp": "02:27:35",
@@ -970,10 +970,10 @@
       "scene": "The fellowship looks upon the argonath",
       "item": "💧 spray bottle, 🌬 small electric fan",
       "category": "wet · lighting, fire and wind",
-      "who": "Anna Kopp · Andrey",
+      "who": "Douglas Spangler · Andrey",
       "groups": [
         {
-          "who": "Anna Kopp",
+          "who": "Douglas Spangler",
           "category": "wet",
           "items": [
             "💧 spray bottle"
@@ -1116,10 +1116,10 @@
       "scene": "Frodo saves Sam from drowning in Anduin",
       "item": "🧊 ice pack, 💧 spray bottle, 🧍 person",
       "category": "wet · human",
-      "who": "Anna Kopp · Anna Green",
+      "who": "Douglas Spangler · Anna Green",
       "groups": [
         {
-          "who": "Anna Kopp",
+          "who": "Douglas Spangler",
           "category": "wet",
           "items": [
             "🧊 ice pack",
@@ -1141,7 +1141,7 @@
       "scene": "Sam and Frodo hug after Sam tells Frodo he won’t leave him.",
       "item": "🧍 person, 💧 spray bottle",
       "category": "human · wet",
-      "who": "Anna Green · Anna Kopp",
+      "who": "Anna Green · Douglas Spangler",
       "groups": [
         {
           "who": "Anna Green",
@@ -1151,7 +1151,7 @@
           ]
         },
         {
-          "who": "Anna Kopp",
+          "who": "Douglas Spangler",
           "category": "wet",
           "items": [
             "💧 spray bottle"
