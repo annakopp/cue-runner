@@ -7,12 +7,15 @@
 
 .header {
   position: sticky;
-  top: 0;
+  /* Sticking 1px above the container (with 1px of extra padding to compensate) keeps the header's
+     background over the container's top edge even when layout lands on a fractional device pixel.
+     At top:0 that rounding leaks a hairline of the row scrolling underneath. */
+  top: -1px;
   z-index: 2;
   display: grid;
   grid-template-columns: 104px 1fr 300px 92px;
   gap: 18px;
-  padding: 10px 26px;
+  padding: 11px 26px 10px;
   border-bottom: 1px solid var(--border);
   font-size: 10px;
   letter-spacing: 0.2em;
