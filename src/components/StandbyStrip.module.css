@@ -59,6 +59,7 @@
   font-weight: 500;
   line-height: 1.12;
   text-wrap: pretty;
+  white-space: pre-wrap;
 }
 
 .secondary .scene {

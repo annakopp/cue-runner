@@ -21,9 +21,11 @@ result's `results` array verbatim to the matching file in this folder (overwrite
 
 **`raw-scene-ideas.json`** — every cue row:
 ```sql
-SELECT url, "Timestamp", "action idea", "scene", "Caregory", "Name", "Items"
+SELECT url, "Timestamp", "action idea", "scene", "Extra Info", "Items"
 FROM "collection://27542e11-97a7-8066-999d-000b743d031b"
 ```
+(Scene Ideas' `Caregory`, `Name` and `Operator` columns are deliberately not exported — see the
+note at the end of this step.)
 (That data source ID is Scene Ideas' own ID — re-fetch the database URL above if Notion ever
 changes it; `notion-fetch` on the database URL shows the current data source ID in a
 `<data-source url="collection://...">` tag.) This may need `LIMIT 100 OFFSET 100` etc. to page
@@ -43,7 +45,7 @@ If `query_data_sources` refuses a query (it can require a paid Notion plan for s
 each data source with `notion-fetch` first to confirm the IDs haven't changed, then fall back to
 single-data-source queries — that's what the app was actually built from.
 
-Two things worth being deliberate about, both easy to get backwards:
+Three things worth being deliberate about, all easy to get backwards:
 
 - Color-coding uses **Items → Item Categories** (the query above), *not* the "Caregory" column
   that also lives on Scene Ideas rows — that one's a coarser tag used for Notion's own filtering
@@ -52,6 +54,11 @@ Two things worth being deliberate about, both easy to get backwards:
   *category* of props (e.g. "wet" effects are always the same person) — not from Scene Ideas'
   `Name` column, which just records who logged the cue idea and is not used by the build script at
   all.** A cue whose items span two categories gets one operator per category, via `groups`.
+  (Scene Ideas also has an `Operator` formula column, which Notion won't expose to SQL at all — the
+  category's `User` is the source this pipeline uses.)
+- **Category names are also the app's color keys.** If a category gets renamed in Notion (as
+  "lighting, fire and wind" → "wind & fire" once did), add or rename the matching key in
+  [`src/lib/categoryColors.ts`](../../src/lib/categoryColors.ts), or it silently falls back to gray.
 
 ## 2. Check for new items or people
 

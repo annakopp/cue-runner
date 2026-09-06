@@ -2,6 +2,8 @@ export interface RawCue {
   timestamp: string;
   action?: string;
   scene?: string;
+  /** Reference text to have on hand when the cue fires — a speech to read aloud, say. */
+  extra?: string;
   item?: string;
   category?: string;
   who?: string;
@@ -39,6 +41,7 @@ export interface ParsedCue {
   time: string;
   action: string;
   scene: string;
+  extra: string;
   groups: Group[];
 }
 

@@ -35,6 +35,38 @@
   margin-top: clamp(6px, 1.4vh, 14px);
 }
 
+/* With reference text to show, the items block slides left and the note takes the right edge. */
+.bodyWithExtra {
+  grid-template-columns: 1fr auto auto;
+  gap: 24px;
+}
+
+.extra {
+  background: var(--bg-block);
+  border: 1px solid var(--border-block);
+  min-width: 300px;
+  max-width: 420px;
+}
+
+.extraHeader {
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--border-block);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: #7d858c;
+}
+
+.extraBody {
+  padding: 11px 14px;
+  font-family: var(--font-narrow);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--text-hi);
+  white-space: pre-wrap;
+  text-wrap: pretty;
+}
+
 .scene {
   font-family: var(--font-narrow);
   font-size: clamp(15px, 2.3vh, 21px);
@@ -51,6 +83,7 @@
   color: var(--text-hi);
   margin-top: 6px;
   text-wrap: pretty;
+  white-space: pre-wrap;
 }
 
 .groups {

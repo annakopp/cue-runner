@@ -37,7 +37,7 @@ export function GoCard({ current, elapsed, waiting, firstTime }: Props) {
           <div className={styles.headerTime}>{current.time}</div>
           <div className={styles.headerElapsed}>+{elapsed}</div>
         </div>
-        <div className={styles.body}>
+        <div className={current.extra ? `${styles.body} ${styles.bodyWithExtra}` : styles.body}>
           <div>
             <div className={styles.scene}>{current.scene}</div>
             <div className={styles.action} style={{ fontSize: size }}>
@@ -63,6 +63,12 @@ export function GoCard({ current, elapsed, waiting, firstTime }: Props) {
               </div>
             ))}
           </div>
+          {current.extra && (
+            <div className={styles.extra}>
+              <div className={styles.extraHeader}>EXTRA INFO</div>
+              <div className={styles.extraBody}>{current.extra}</div>
+            </div>
+          )}
         </div>
       </div>
     </div>

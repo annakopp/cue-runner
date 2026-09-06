@@ -33,6 +33,9 @@ npm run lint    # oxlint
 - **GO** (top card) is the cue that just fired. It holds for six seconds and then clears to a gray
   "waiting for next cue" — long enough to act on, short enough that a stale instruction never sits
   there looking like something still to do.
+- A cue can carry **extra info** — reference text you need in hand the moment it fires, like a
+  speech to read aloud. It opens in its own panel on the right of the GO card, with the prop
+  blocks sliding left to make room. Cues without it keep the plain two-column layout.
 - The **NEXT UP / STANDBY** strip below it shows the next three cues with a countdown each (it
   flips to amber "STANDBY" inside the last 30 seconds).
 - The cue list picks up where the standby strip leaves off — it's everything still to come *after*
@@ -68,12 +71,16 @@ or keep it as a backup.
       "action": "shake chair",
       "scene": "Frodo jumps in wagon",
       "item": "🪑 chair",
-      "category": "furniture",
+      "category": "furniture & fruit props",
       "who": "Matt"
     }
   ]
 }
 ```
+
+An optional `"extra"` string on any cue is reference text for the GO card's side panel. Line breaks
+in `action` and `extra` are preserved (runs of blank lines collapse to one), so a cue made of
+several sub-actions reads as several lines.
 
 Cues must be in chronological order by `timestamp`. Any of `action`, `scene`, `item`, `category`,
 `who` may be blank — a blank `action` renders as a watch-only cue with no instruction.
@@ -85,11 +92,12 @@ can't otherwise say which items go with which category:
 ```json
 {
   "timestamp": "02:33:10",
-  "action": "Strobe light continues. Turn on fan. Pull ring with magnet...",
+  "action": "Flash light motion continues. Turn on fan. Pull ring with magnet...",
   "scene": "Frodo sits on Amon Hen while wearing the ring.",
   "groups": [
-    { "who": "Matt", "category": "lighting, fire and wind", "items": ["🌬 small electric fan", "🔦 color changing flashlight"] },
-    { "who": "Matt", "category": "ring", "items": ["🧲 magnet", "💍 ring (magnetable)"] }
+    { "who": "Andrey", "category": "wind & fire", "items": ["🌬 small electric fan"] },
+    { "who": "Matt", "category": "lighting", "items": ["🔦 color changing flashlight"] },
+    { "who": "Anna Green", "category": "ring", "items": ["🧲 magnet", "💍 ring (magnetable)"] }
   ]
 }
 ```

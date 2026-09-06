@@ -103,8 +103,11 @@ export function parseCue(c: RawCue, index: number): ParsedCue {
     index,
     t: secs(c.timestamp) ?? 0,
     time: c.timestamp,
-    action: c.action || "",
+    // Authors use line breaks to separate the sub-actions of one cue; keep them, but collapse the
+    // blank lines Notion's text areas tend to collect so the card doesn't double-space.
+    action: (c.action || "").replace(/\n{2,}/g, "\n").trim(),
     scene: c.scene || "",
+    extra: c.extra || "",
     groups: parseGroups(c, items),
   };
 }

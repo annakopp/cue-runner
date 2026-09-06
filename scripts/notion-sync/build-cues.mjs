@@ -72,6 +72,7 @@ const cues = sceneIdeas.map((row) => {
     timestamp: hms(t),
     action: row["action idea"] || "",
     scene: row.scene || "",
+    ...(row["Extra Info"] ? { extra: row["Extra Info"].trim() } : {}),
   };
 
   if (categoriesPresent.length <= 1) {
