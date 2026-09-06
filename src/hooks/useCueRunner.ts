@@ -1,23 +1,34 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { AUTO_SCROLL, STANDBY_LEAD_SECONDS } from "../lib/config";
+import {
+  AUTO_SCROLL,
+  HIDE_ACTIVE_DEFAULT,
+  STANDBY_COUNT,
+  STANDBY_LEAD_SECONDS,
+} from "../lib/config";
 import { hms, ms, parseCue, secs } from "../lib/parse";
 import {
   loadClockState,
   loadCueList,
+  loadPrefs,
   saveClockState,
   saveCueList,
+  savePrefs,
   clearCueList,
 } from "../lib/storage";
 import type { CueList, ParsedCue, RawCue } from "../types";
 
 export function useCueRunner(defaultList: CueList) {
   const [film, setFilm] = useState(() => loadCueList()?.film ?? defaultList.film);
+  const [runtime, setRuntime] = useState(() => loadCueList()?.runtime ?? defaultList.runtime);
   const [rawCues, setRawCues] = useState<RawCue[]>(() => loadCueList()?.cues ?? defaultList.cues);
   const cues = useMemo<ParsedCue[]>(() => rawCues.map(parseCue), [rawCues]);
 
   const [t, setT] = useState(() => loadClockState()?.t ?? 0);
   const [playing, setPlaying] = useState(false);
   const [syncText, setSyncText] = useState(() => hms(loadClockState()?.t ?? 0));
+  const [hideActive, setHideActive] = useState(
+    () => loadPrefs().hideActive ?? HIDE_ACTIVE_DEFAULT,
+  );
 
   const listRef = useRef<HTMLDivElement | null>(null);
   const rowRefs = useRef<Map<number, HTMLDivElement>>(new Map());
@@ -69,8 +80,17 @@ export function useCueRunner(defaultList: CueList) {
   const scrollToNow = useCallback(() => {
     const container = listRef.current;
     if (!container) return;
-    const idx = Math.max(0, latest.current.currentIndex);
-    const row = rowRefs.current.get(idx);
+    // The current cue may not have a row of its own (it's hidden while it's showing in the GO
+    // card), so scroll to the first row still rendered at or after it.
+    const from = Math.max(0, latest.current.currentIndex);
+    let row: HTMLDivElement | undefined;
+    let bestIndex = Infinity;
+    for (const [index, el] of rowRefs.current) {
+      if (index >= from && index < bestIndex) {
+        bestIndex = index;
+        row = el;
+      }
+    }
     if (!row) return;
     const delta = row.getBoundingClientRect().top - container.getBoundingClientRect().top;
     container.scrollTop = Math.max(0, container.scrollTop + delta - 90);
@@ -148,6 +168,7 @@ export function useCueRunner(defaultList: CueList) {
 
   const loadNewCueList = useCallback((list: CueList) => {
     setFilm(list.film);
+    setRuntime(list.runtime);
     setRawCues(list.cues);
     saveCueList(list);
     setT(0);
@@ -160,6 +181,7 @@ export function useCueRunner(defaultList: CueList) {
   const resetToDefaultCueList = useCallback(() => {
     clearCueList();
     setFilm(defaultList.film);
+    setRuntime(defaultList.runtime);
     setRawCues(defaultList.cues);
     setT(0);
     setPlaying(false);
@@ -168,15 +190,58 @@ export function useCueRunner(defaultList: CueList) {
     lastIndexRef.current = null;
   }, [defaultList]);
 
+  const toggleHideActive = useCallback(() => {
+    setHideActive((prev) => {
+      savePrefs({ hideActive: !prev });
+      return !prev;
+    });
+  }, []);
+
   const current = currentIndex >= 0 ? cues[currentIndex] : null;
   const next = cues[currentIndex + 1] ?? null;
   const gap = next ? next.t - t : 0;
   const imminent = !!next && gap <= STANDBY_LEAD_SECONDS;
 
+  // The next few cues, each with its own countdown — the standby strip shows all of them.
+  const upcoming = useMemo(
+    () =>
+      cues.slice(currentIndex + 1, currentIndex + 1 + STANDBY_COUNT).map((cue) => ({
+        cue,
+        countdown: ms(cue.t - t),
+        imminent: cue.t - t <= STANDBY_LEAD_SECONDS,
+      })),
+    [cues, currentIndex, t],
+  );
+
+  // Cues already on screen above the list (the GO card's and the standby strip's).
+  const activeIndexes = useMemo(() => {
+    const set = new Set<number>();
+    if (currentIndex >= 0) set.add(currentIndex);
+    for (const { cue } of upcoming) set.add(cue.index);
+    return set;
+  }, [currentIndex, upcoming]);
+
+  const listCues = useMemo(
+    () => (hideActive ? cues.filter((c) => !activeIndexes.has(c.index)) : cues),
+    [cues, hideActive, activeIndexes],
+  );
+
+  // Timeline length for the minimap: the film's runtime, or the last cue if that runs longer.
+  const timelineLength = useMemo(() => {
+    const lastCue = cues.length ? cues[cues.length - 1].t : 0;
+    return Math.max(secs(runtime) ?? 0, lastCue + 120, 1);
+  }, [cues, runtime]);
+
   return {
     film,
+    runtime,
     cues,
-    rawCueList: { film, runtime: defaultList.runtime, cues: rawCues } as CueList,
+    listCues,
+    hideActive,
+    hiddenCount: cues.length - listCues.length,
+    toggleHideActive,
+    timelineLength,
+    rawCueList: { film, runtime, cues: rawCues } as CueList,
     t,
     clock: hms(t),
     playing,
@@ -184,6 +249,7 @@ export function useCueRunner(defaultList: CueList) {
     currentIndex,
     current,
     next,
+    upcoming,
     elapsed: current ? ms(t - current.t) : "0:00",
     countdown: next ? ms(gap) : "—",
     imminent,

@@ -1,0 +1,86 @@
+.minimap {
+  flex: none;
+  position: relative;
+  padding: 8px 26px 6px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-strip);
+  cursor: pointer;
+  user-select: none;
+}
+
+.track {
+  position: relative;
+  height: clamp(16px, 2.6vh, 26px);
+  background: var(--bg-input);
+  border: 1px solid var(--border-ctl);
+}
+
+.minimap:hover .track {
+  border-color: var(--border-ctl-hi);
+}
+
+.tick {
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  width: 2px;
+  margin-left: -1px;
+}
+
+.hourLine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border-ctl);
+}
+
+/* Everything before the playhead, knocked back so the remaining show reads brighter. */
+.past {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: #0c0d0e;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.playhead {
+  position: absolute;
+  top: -3px;
+  bottom: -3px;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--go);
+  pointer-events: none;
+}
+
+.playheadCap {
+  position: absolute;
+  top: -5px;
+  width: 0;
+  height: 0;
+  margin-left: -4px;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid var(--go);
+  pointer-events: none;
+}
+
+.labels {
+  position: relative;
+  height: 12px;
+  margin-top: 3px;
+}
+
+.hourLabel {
+  position: absolute;
+  top: 0;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: var(--text-past);
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+

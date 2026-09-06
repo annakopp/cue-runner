@@ -28,12 +28,24 @@ npm run lint    # oxlint
 
 - **RUN / HOLD** starts and stops the show clock. **SYNC TO FILM** sets the clock directly
   (`HH:MM:SS`) to line up with the film's own timestamp.
-- **GO** (top card) is whatever cue just fired; the **NEXT / STANDBY** strip below it is what's
-  coming and how soon (it flips to amber "STANDBY" inside the last 30 seconds).
-- The cue list below that is the whole show — click any row to jump the clock to it.
+- **The minimap** under the transport is the whole show at a glance — one tick per cue, colored by
+  category, dimmed once fired, with a playhead for where you are. Click anywhere on it to jump.
+- **GO** (top card) is whatever cue just fired; the **NEXT UP / STANDBY** strip below it shows the
+  next three cues with a countdown each (it flips to amber "STANDBY" inside the last 30 seconds).
+- The cue list below that is the rest of the show. The left column counts down to each cue (a
+  fired cue counts up, as `−M:SS`); the absolute timecode sits in the right-hand **TC** column.
+  Click any row to jump the clock to it.
+- Cues already on screen above — the GO cue and the three on standby — are **hidden from the list**
+  so it doesn't repeat them. **SHOW ACTIVE** in the footer brings them back; the choice is
+  remembered per browser.
 - Keyboard: `Space` run/hold, `←`/`→` ±5s, `J`/`K` previous/next cue.
 - Your clock position is saved to this browser automatically, so a refresh mid-movie doesn't lose
   your place.
+- It's built for one shared operator screen — a laptop or tablet, not a phone.
+
+Tunables live in [`src/lib/config.ts`](src/lib/config.ts): `STANDBY_LEAD_SECONDS` (when NEXT UP
+flips to STANDBY), `STANDBY_COUNT` (how many upcoming cues the strip shows), `AUTO_SCROLL`, and
+`HIDE_ACTIVE_DEFAULT`.
 
 ## Cue list format
 

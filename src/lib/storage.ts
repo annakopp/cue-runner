@@ -1,8 +1,29 @@
-import { CLOCK_STORAGE_KEY, CUES_STORAGE_KEY } from "./config";
+import { CLOCK_STORAGE_KEY, CUES_STORAGE_KEY, PREFS_STORAGE_KEY } from "./config";
 import type { CueList } from "../types";
 
 export interface SavedClockState {
   t: number;
+}
+
+export interface Prefs {
+  hideActive: boolean;
+}
+
+export function loadPrefs(): Partial<Prefs> {
+  try {
+    const raw = JSON.parse(localStorage.getItem(PREFS_STORAGE_KEY) ?? "{}");
+    return typeof raw.hideActive === "boolean" ? { hideActive: raw.hideActive } : {};
+  } catch {
+    return {};
+  }
+}
+
+export function savePrefs(prefs: Prefs): void {
+  try {
+    localStorage.setItem(PREFS_STORAGE_KEY, JSON.stringify(prefs));
+  } catch {
+    // storage unavailable — the preference still applies for this session
+  }
 }
 
 export function loadClockState(): SavedClockState | null {

@@ -1,29 +1,33 @@
 .row {
   display: grid;
-  grid-template-columns: 104px 1fr 300px;
+  grid-template-columns: 104px 1fr 300px 92px;
   gap: 18px;
   padding: 14px 26px 14px 23px;
   border-bottom: 1px solid var(--border-row);
   border-left: 3px solid transparent;
   cursor: pointer;
   font-size: 14px;
+  align-items: start;
 }
 
 .row:hover {
   background: var(--bg-row-hover);
 }
 
-.time {
+.countdown {
+  font-size: 16px;
   font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
 }
 
 .scene {
-  font-size: 13px;
+  font-size: 16px;
   margin-bottom: 4px;
 }
 
 .action {
-  font-size: 16px;
+  font-size: 22px;
+  line-height: 1.14;
   text-wrap: pretty;
 }
 
@@ -31,4 +35,10 @@
   display: flex;
   flex-direction: column;
   gap: 9px;
+}
+
+.tc {
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
 }

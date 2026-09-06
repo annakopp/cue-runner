@@ -2,6 +2,7 @@
 import { useCueRunner } from "./hooks/useCueRunner";
 import defaultCues from "./data/defaultCues.json";
 import { Transport } from "./components/Transport";
+import { Minimap } from "./components/Minimap";
 import { GoCard } from "./components/GoCard";
 import { StandbyStrip } from "./components/StandbyStrip";
 import { CueList } from "./components/CueList";
@@ -24,16 +25,23 @@ export default function App() {
       }}
     >
       <Transport runner={runner} film={runner.film ?? ""} cueCount={runner.cues.length} />
+      <Minimap
+        cues={runner.cues}
+        t={runner.t}
+        timelineLength={runner.timelineLength}
+        onSeek={runner.jumpTo}
+      />
       <GoCard
         current={runner.current}
         elapsed={runner.elapsed}
         firstTime={runner.cues[0]?.time ?? null}
       />
-      <StandbyStrip next={runner.next} countdown={runner.countdown} imminent={runner.imminent} />
+      <StandbyStrip upcoming={runner.upcoming} />
       <CueList
         ref={runner.listRef}
-        cues={runner.cues}
+        cues={runner.listCues}
         currentIndex={runner.currentIndex}
+        t={runner.t}
         onJump={runner.jumpTo}
         registerRow={runner.registerRow}
       />
@@ -41,6 +49,9 @@ export default function App() {
         onJumpToNow={runner.scrollToNow}
         cueList={runner.rawCueList}
         onLoadCueList={runner.loadNewCueList}
+        hideActive={runner.hideActive}
+        hiddenCount={runner.hiddenCount}
+        onToggleHideActive={runner.toggleHideActive}
       />
     </div>
   );

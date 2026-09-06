@@ -6,6 +6,7 @@ import styles from "./CueList.module.css";
 interface Props {
   cues: ParsedCue[];
   currentIndex: number;
+  t: number;
   onJump: (t: number) => void;
   registerRow: (index: number, el: HTMLDivElement | null) => void;
 }
@@ -18,20 +19,23 @@ function rowState(index: number, currentIndex: number): RowState {
 }
 
 export const CueList = forwardRef<HTMLDivElement, Props>(function CueList(
-  { cues, currentIndex, onJump, registerRow },
+  { cues, currentIndex, t, onJump, registerRow },
   ref,
 ) {
   return (
     <div className={styles.list} ref={ref} data-cuelist="1">
       <div className={styles.header}>
-        <div>TC</div>
+        <div>IN</div>
         <div>SCENE · CUE</div>
         <div className={styles.headerWho}>WHO · ITEMS</div>
+        <div className={styles.headerTc}>TC</div>
       </div>
+      {cues.length === 0 && <div className={styles.empty}>NO CUES TO SHOW</div>}
       {cues.map((cue) => (
         <CueRow
           cue={cue}
           state={rowState(cue.index, currentIndex)}
+          t={t}
           onJump={onJump}
           registerRow={registerRow}
           key={cue.index}

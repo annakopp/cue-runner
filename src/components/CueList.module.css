@@ -10,7 +10,7 @@
   top: 0;
   z-index: 2;
   display: grid;
-  grid-template-columns: 104px 1fr 300px;
+  grid-template-columns: 104px 1fr 300px 92px;
   gap: 18px;
   padding: 10px 26px;
   border-bottom: 1px solid var(--border);
@@ -22,6 +22,17 @@
 
 .headerWho {
   color: var(--text-mid);
+}
+
+.headerTc {
+  text-align: right;
+}
+
+.empty {
+  padding: 26px;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: var(--text-past);
 }
 
 .spacer {
