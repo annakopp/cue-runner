@@ -30,22 +30,25 @@ npm run lint    # oxlint
   (`HH:MM:SS`) to line up with the film's own timestamp.
 - **The minimap** under the transport is the whole show at a glance — one tick per cue, colored by
   category, dimmed once fired, with a playhead for where you are. Click anywhere on it to jump.
-- **GO** (top card) is whatever cue just fired; the **NEXT UP / STANDBY** strip below it shows the
-  next three cues with a countdown each (it flips to amber "STANDBY" inside the last 30 seconds).
-- The cue list below that is the rest of the show. The left column counts down to each cue (a
-  fired cue counts up, as `−M:SS`); the absolute timecode sits in the right-hand **TC** column.
-  Click any row to jump the clock to it.
-- Cues already on screen above — the GO cue and the three on standby — are **hidden from the list**
-  so it doesn't repeat them. **SHOW ACTIVE** in the footer brings them back; the choice is
-  remembered per browser.
+- **GO** (top card) is the cue that just fired. It holds for six seconds and then clears to a gray
+  "waiting for next cue" — long enough to act on, short enough that a stale instruction never sits
+  there looking like something still to do.
+- The **NEXT UP / STANDBY** strip below it shows the next three cues with a countdown each (it
+  flips to amber "STANDBY" inside the last 30 seconds).
+- The cue list picks up where the standby strip leaves off — it's everything still to come *after*
+  the three on standby, so nothing on screen is shown twice and the list is only ever the road
+  ahead. The left column counts down to each cue; the absolute timecode sits in the right-hand
+  **TC** column. Click any row to jump the clock to it.
+- To get back to something already fired, scrub with the minimap, `←`/`→`, `J`/`K`, or SYNC TO FILM
+  — the list itself doesn't carry past cues.
 - Keyboard: `Space` run/hold, `←`/`→` ±5s, `J`/`K` previous/next cue.
 - Your clock position is saved to this browser automatically, so a refresh mid-movie doesn't lose
   your place.
 - It's built for one shared operator screen — a laptop or tablet, not a phone.
 
 Tunables live in [`src/lib/config.ts`](src/lib/config.ts): `STANDBY_LEAD_SECONDS` (when NEXT UP
-flips to STANDBY), `STANDBY_COUNT` (how many upcoming cues the strip shows), `AUTO_SCROLL`, and
-`HIDE_ACTIVE_DEFAULT`.
+flips to STANDBY), `STANDBY_COUNT` (how many upcoming cues the strip shows, and therefore where
+the list starts), `GO_LINGER_SECONDS` (how long a fired cue holds the GO card) and `AUTO_SCROLL`.
 
 ## Cue list format
 

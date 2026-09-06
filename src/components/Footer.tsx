@@ -8,19 +8,9 @@ interface Props {
   onJumpToNow: () => void;
   cueList: CueList;
   onLoadCueList: (list: CueList) => void;
-  hideActive: boolean;
-  hiddenCount: number;
-  onToggleHideActive: () => void;
 }
 
-export function Footer({
-  onJumpToNow,
-  cueList,
-  onLoadCueList,
-  hideActive,
-  hiddenCount,
-  onToggleHideActive,
-}: Props) {
+export function Footer({ onJumpToNow, cueList, onLoadCueList }: Props) {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -44,9 +34,6 @@ export function Footer({
     <div className={styles.footer}>
       <div className={styles.btn} onClick={onJumpToNow}>
         JUMP TO NOW
-      </div>
-      <div className={styles.btn} onClick={onToggleHideActive}>
-        {hideActive ? `SHOW ACTIVE (${hiddenCount})` : "HIDE ACTIVE"}
       </div>
       <div className={styles.btn} onClick={() => fileInputRef.current?.click()}>
         LOAD CUE LIST

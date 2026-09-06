@@ -4,19 +4,22 @@ import styles from "./GoCard.module.css";
 interface Props {
   current: ParsedCue | null;
   elapsed: string;
+  waiting: boolean;
   firstTime: string | null;
 }
 
-export function GoCard({ current, elapsed, firstTime }: Props) {
+export function GoCard({ current, elapsed, waiting, firstTime }: Props) {
   if (!current) {
     return (
       <div className={styles.card}>
         <div className={styles.empty}>
-          <div className={styles.emptyLabel}>NO CUE YET</div>
+          <div className={styles.emptyLabel}>{waiting ? "NO ACTIVE CUE" : "NO CUE YET"}</div>
           <div className={styles.emptyText}>
-            {firstTime
-              ? `first cue at ${firstTime} — hit RUN when the film starts`
-              : "no cues loaded"}
+            {waiting
+              ? "waiting for next cue"
+              : firstTime
+                ? `first cue at ${firstTime} — hit RUN when the film starts`
+                : "no cues loaded"}
           </div>
         </div>
       </div>

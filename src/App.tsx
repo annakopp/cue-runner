@@ -32,8 +32,9 @@ export default function App() {
         onSeek={runner.jumpTo}
       />
       <GoCard
-        current={runner.current}
+        current={runner.goCue}
         elapsed={runner.elapsed}
+        waiting={runner.waitingForCue}
         firstTime={runner.cues[0]?.time ?? null}
       />
       <StandbyStrip upcoming={runner.upcoming} />
@@ -49,9 +50,6 @@ export default function App() {
         onJumpToNow={runner.scrollToNow}
         cueList={runner.rawCueList}
         onLoadCueList={runner.loadNewCueList}
-        hideActive={runner.hideActive}
-        hiddenCount={runner.hiddenCount}
-        onToggleHideActive={runner.toggleHideActive}
       />
     </div>
   );

@@ -30,7 +30,7 @@ export const CueList = forwardRef<HTMLDivElement, Props>(function CueList(
         <div className={styles.headerWho}>WHO · ITEMS</div>
         <div className={styles.headerTc}>TC</div>
       </div>
-      {cues.length === 0 && <div className={styles.empty}>NO CUES TO SHOW</div>}
+      {cues.length === 0 && <div className={styles.empty}>NOTHING FURTHER — END OF SHOW</div>}
       {cues.map((cue) => (
         <CueRow
           cue={cue}
