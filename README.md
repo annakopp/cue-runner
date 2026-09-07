@@ -7,8 +7,8 @@ every cue — action, scene, prop items (with emoji), item category, and who's r
 Built for a dark room and a glance from across it: near-black surfaces, the action reads largest,
 the countdown second.
 
-React + TypeScript + Vite, no backend. Cue data is a static JSON list you can load or export from
-the app itself (see below) — no server, no database.
+React + TypeScript + Vite, no backend. The cue list is a JSON file bundled at build time and
+synced from Notion (see below) — no server, no database.
 
 ## Running locally
 
@@ -61,11 +61,9 @@ the list starts), `GO_LINGER_SECONDS` (how long a fired cue holds the GO card) a
 
 ## Cue list format
 
-The cue list lives in a JSON file — either the one bundled with the app
-([`src/data/defaultCues.json`](src/data/defaultCues.json)) or one you load at runtime via **LOAD
-CUE LIST** in the footer. A loaded list is saved to this browser and persists across refreshes;
-**EXPORT CUE LIST** downloads whatever list is currently active, so you can edit it and reload it,
-or keep it as a backup.
+The cue list is [`src/data/defaultCues.json`](src/data/defaultCues.json), bundled at build time.
+Changing the show means editing that file (or re-syncing it from Notion, below) and pushing — the
+app has no runtime import, so what's deployed is always what everyone sees.
 
 ```json
 {

@@ -6,20 +6,12 @@ import {
   STANDBY_LEAD_SECONDS,
 } from "../lib/config";
 import { hms, ms, parseCue, secs } from "../lib/parse";
-import {
-  loadClockState,
-  loadCueList,
-  saveClockState,
-  saveCueList,
-  clearCueList,
-} from "../lib/storage";
-import type { CueList, ParsedCue, RawCue } from "../types";
+import { loadClockState, saveClockState } from "../lib/storage";
+import type { CueList, ParsedCue } from "../types";
 
-export function useCueRunner(defaultList: CueList) {
-  const [film, setFilm] = useState(() => loadCueList()?.film ?? defaultList.film);
-  const [runtime, setRuntime] = useState(() => loadCueList()?.runtime ?? defaultList.runtime);
-  const [rawCues, setRawCues] = useState<RawCue[]>(() => loadCueList()?.cues ?? defaultList.cues);
-  const cues = useMemo<ParsedCue[]>(() => rawCues.map(parseCue), [rawCues]);
+export function useCueRunner(cueList: CueList) {
+  const { film, runtime } = cueList;
+  const cues = useMemo<ParsedCue[]>(() => cueList.cues.map(parseCue), [cueList]);
 
   const [t, setT] = useState(() => loadClockState()?.t ?? 0);
   const [playing, setPlaying] = useState(false);
@@ -161,30 +153,6 @@ export function useCueRunner(defaultList: CueList) {
     return () => window.removeEventListener("keydown", onKey);
   }, [nudge, step]);
 
-  const loadNewCueList = useCallback((list: CueList) => {
-    setFilm(list.film);
-    setRuntime(list.runtime);
-    setRawCues(list.cues);
-    saveCueList(list);
-    setT(0);
-    setPlaying(false);
-    setSyncText("00:00:00");
-    saveClockState({ t: 0 });
-    lastIndexRef.current = null;
-  }, []);
-
-  const resetToDefaultCueList = useCallback(() => {
-    clearCueList();
-    setFilm(defaultList.film);
-    setRuntime(defaultList.runtime);
-    setRawCues(defaultList.cues);
-    setT(0);
-    setPlaying(false);
-    setSyncText("00:00:00");
-    saveClockState({ t: 0 });
-    lastIndexRef.current = null;
-  }, [defaultList]);
-
   const current = currentIndex >= 0 ? cues[currentIndex] : null;
   const next = cues[currentIndex + 1] ?? null;
   const gap = next ? next.t - t : 0;
@@ -231,7 +199,6 @@ export function useCueRunner(defaultList: CueList) {
     cues,
     listCues,
     timelineLength,
-    rawCueList: { film, runtime, cues: rawCues } as CueList,
     t,
     clock: hms(t),
     playing,
@@ -256,8 +223,6 @@ export function useCueRunner(defaultList: CueList) {
     step,
     jumpTo,
     onSyncChange,
-    loadNewCueList,
-    resetToDefaultCueList,
   };
 }
 

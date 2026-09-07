@@ -6,4 +6,3 @@ export const STANDBY_COUNT = 3; // how many upcoming cues the NEXT/STANDBY strip
 // they hold until the next cue takes over, since that text is there to be read from.
 export const GO_LINGER_SECONDS = 6;
 export const CLOCK_STORAGE_KEY = "cuerunner.state";
-export const CUES_STORAGE_KEY = "cuerunner.cues";

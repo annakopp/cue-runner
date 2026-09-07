@@ -1,7 +1,7 @@
 .minimap {
   flex: none;
   position: relative;
-  padding: 8px 26px 6px;
+  padding: 5px 26px 4px;
   border-bottom: 1px solid var(--border);
   background: var(--bg-strip);
   cursor: pointer;
@@ -10,7 +10,7 @@
 
 .track {
   position: relative;
-  height: clamp(16px, 2.6vh, 26px);
+  height: clamp(13px, 2vh, 20px);
   background: var(--bg-input);
   border: 1px solid var(--border-ctl);
 }
@@ -70,8 +70,8 @@
 
 .labels {
   position: relative;
-  height: 12px;
-  margin-top: 3px;
+  height: 10px;
+  margin-top: 2px;
 }
 
 .hourLabel {

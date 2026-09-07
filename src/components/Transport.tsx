@@ -9,11 +9,11 @@ interface Props {
 }
 
 export function Transport({ runner, film, cueCount }: Props) {
-  const { clock, playing, syncText, toggle, nudge, reset, onSyncChange } = runner;
+  const { clock, playing, syncText, toggle, nudge, reset, onSyncChange, scrollToNow } = runner;
 
   return (
     <div className={styles.transport}>
-      <div>
+      <div className={styles.clockGroup}>
         <div className={styles.label}>SHOW TIME</div>
         <div className={styles.clock}>{clock}</div>
       </div>
@@ -35,15 +35,16 @@ export function Transport({ runner, film, cueCount }: Props) {
         <div className={styles.resetBtn} onClick={reset}>
           RESET
         </div>
+        <div className={styles.jumpBtn} onClick={scrollToNow}>
+          JUMP TO NOW
+        </div>
       </div>
       <div className={styles.spacer} />
       <div className={styles.titleBlock}>
-        {film}
-        <br />
-        <span className={styles.titleSub}>prompt book · {cueCount} cues</span>
+        {film} <span className={styles.titleSub}>· {cueCount} cues</span>
       </div>
-      <div>
-        <div className={styles.label}>SYNC TO FILM</div>
+      <div className={styles.syncGroup}>
+        <div className={styles.label}>SYNC</div>
         <input
           type="text"
           className={styles.syncInput}

@@ -50,11 +50,7 @@ export default function App() {
         onJump={runner.jumpTo}
         registerRow={runner.registerRow}
       />
-      <Footer
-        onJumpToNow={runner.scrollToNow}
-        cueList={runner.rawCueList}
-        onLoadCueList={runner.loadNewCueList}
-      />
+      <Footer />
     </div>
   );
 }
