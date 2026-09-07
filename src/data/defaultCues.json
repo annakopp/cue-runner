@@ -334,15 +334,7 @@
     },
     {
       "timestamp": "00:42:20",
-      "action": "whack legs with pool noodle",
-      "scene": "gandalf strikes back at saruman’s feet",
-      "item": "〰️ pool noodle",
-      "category": "fighting",
-      "who": "Ben"
-    },
-    {
-      "timestamp": "00:42:20",
-      "action": "various pool noodle whacks for 10 seconds",
+      "action": "whack legs with pool noodle & various pool noodle whacks for 10 seconds",
       "scene": "",
       "item": "〰️ pool noodle",
       "category": "fighting",
@@ -408,6 +400,7 @@
       "timestamp": "00:46:10",
       "action": "crawl fingers on shoulders",
       "scene": "black rider searching",
+      "extra": "note: Ben as standin, so Anna can serve oreos",
       "item": "✋ hand",
       "category": "human",
       "who": "Anna Green"
@@ -599,7 +592,7 @@
     },
     {
       "timestamp": "01:10:47",
-      "action": "Scratch Sid’s face with kale",
+      "action": "Scratch Sid’s face with venik",
       "scene": "Arwen’s cheek scratched by tree",
       "item": "🍃 venik",
       "category": "furniture & fruit props",
