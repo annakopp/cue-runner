@@ -30,17 +30,19 @@ npm run lint    # oxlint
   (`HH:MM:SS`) to line up with the film's own timestamp.
 - **The minimap** under the transport is the whole show at a glance — one tick per cue, colored by
   category, dimmed once fired, with a playhead for where you are. Click anywhere on it to jump.
-- **GO** (top card) is the cue that just fired. It holds for six seconds — a gray bar along the
-  bottom drains over that window so its going is something you see coming — and then clears to a
-  gray "waiting for next cue", short enough that a stale instruction never sits there looking like
-  something still to do.
-- The **JUST FIRED** row above it keeps the last cue on screen in gray to refer back to. When a cue
-  clears off the GO card it moves down into this row rather than vanishing.
+- **GO** (top card) is the cue that just fired. It holds for ten seconds — a gray bar along the
+  bottom drains over that window so its going is something you see coming — then clears to a gray
+  "waiting for next cue", so a stale instruction never sits there looking like something still to
+  do. **DONE** on the card clears it the moment you've finished, without waiting the window out;
+  it overrides the hold on extra-info cues too.
+- The **JUST FIRED** row above it keeps the last cue on screen in gray to refer back to — one line,
+  no props, long actions clipped with an ellipsis (hover for the full text). When a cue clears off
+  the GO card it moves down into this row rather than vanishing.
 - A cue can carry **extra info** — reference text you need in hand while it runs, like a speech to
   read aloud. It sits in a panel on the right of the GO card, with the prop blocks in the middle.
   The panel is always there (reading "none" when a cue has nothing) so the card doesn't reflow
-  from cue to cue. **A cue with extra info ignores the six-second clear** and stays up until the
-  next cue takes over — you can't read from a panel that's already gone.
+  from cue to cue. **A cue with extra info ignores that clear** and stays up until the next cue
+  takes over — you can't read from a panel that's already gone.
 - The **NEXT UP / STANDBY** strip below it shows the next three cues with a countdown each (it
   flips to amber "STANDBY" inside the last 30 seconds). Those rows are clickable too.
 - The cue list picks up where the standby strip leaves off — it's everything still to come *after*
@@ -57,7 +59,8 @@ npm run lint    # oxlint
 
 Tunables live in [`src/lib/config.ts`](src/lib/config.ts): `STANDBY_LEAD_SECONDS` (when NEXT UP
 flips to STANDBY), `STANDBY_COUNT` (how many upcoming cues the strip shows, and therefore where
-the list starts), `GO_LINGER_SECONDS` (how long a fired cue holds the GO card) and `AUTO_SCROLL`.
+the list starts), `GO_LINGER_SECONDS` (how long a fired cue holds the GO card absent a DONE
+press) and `AUTO_SCROLL`.
 
 ## Cue list format
 
@@ -71,7 +74,7 @@ app has no runtime import, so what's deployed is always what everyone sees.
   "runtime": "02:58:00",
   "cues": [
     {
-      "timestamp": "00:08:45",
+      "timestamp": "00:08:31",
       "action": "shake chair",
       "scene": "Frodo jumps in wagon",
       "item": "🪑 chair",
@@ -109,7 +112,7 @@ can't otherwise say which items go with which category:
 
 ### Source of truth: Notion
 
-`src/data/defaultCues.json` is the full, current export (125 cues) of the "🧝‍♀️ Scene Ideas"
+`src/data/defaultCues.json` is the full, current export (135 cues) of the "🧝‍♀️ Scene Ideas"
 Notion database, pulled via Notion MCP. That database's real shape is a bit richer than the flat
 JSON above:
 
@@ -121,7 +124,7 @@ JSON above:
   Scene Ideas (that one's a coarser food/effect/drink/ring/action/under-development tag used for
   Notion's own filtering and isn't used here).
 - **Who's responsible is a property of the category, not the cue.** Each Item Category row has its
-  own `User` person field — e.g. "wet" effects are always the same person's job — and that's who
+  own `User` person field — e.g. "wet & dark" is always the same person's job — and that's who
   shows up as the operator in this app. Scene Ideas' own `Name` column (who logged the idea) isn't
   used for this. A cue whose items span two categories gets two operators, one per category.
 - Notion has no emoji field anywhere in this schema — the 🪑🧴✨ etc. are assigned per item name in

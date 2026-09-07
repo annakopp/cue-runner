@@ -52,6 +52,25 @@
   color: var(--go);
 }
 
+.headerSpacer {
+  flex: 1;
+}
+
+.doneBtn {
+  border: 1px solid var(--border-ctl);
+  padding: 5px 16px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--text-mid);
+  cursor: pointer;
+  user-select: none;
+}
+
+.doneBtn:hover {
+  border-color: var(--go);
+  color: var(--text-hi);
+}
+
 /* The note keeps its column whether or not the cue has one, so the card doesn't reflow from cue
    to cue — the prop blocks sit in the middle and the note takes the right edge either way. */
 .body {

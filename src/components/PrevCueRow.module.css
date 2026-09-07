@@ -1,13 +1,18 @@
+/* A one-line reminder of what just happened — no props, and long actions clipped — so referring
+   back costs as little vertical space as possible. */
 .row {
   flex: none;
   display: grid;
-  grid-template-columns: 104px 1fr 300px 92px;
+  /* minmax(0, 1fr) rather than 1fr: a plain 1fr track can't shrink below its content's min-content
+     width, and nowrap text has no wrap points, so the row would blow past the viewport (taking the
+     TC column off-screen) instead of ellipsing. */
+  grid-template-columns: 104px minmax(0, 1fr) 92px;
   gap: 18px;
-  padding: clamp(5px, 0.9vh, 9px) 26px clamp(6px, 1vh, 10px);
+  padding: clamp(4px, 0.7vh, 7px) 26px clamp(5px, 0.8vh, 8px);
   border-bottom: 1px solid var(--border);
   background: var(--bg-page);
   color: var(--text-past);
-  align-items: start;
+  align-items: baseline;
   cursor: pointer;
 }
 
@@ -15,36 +20,40 @@
   filter: brightness(1.35);
 }
 
+/* Grid items default to min-width:auto too, so the cell needs releasing as well as the track. */
+.cell {
+  min-width: 0;
+}
+
 .label {
   font-size: 10px;
   letter-spacing: 0.22em;
   color: var(--text-past-dim);
-  margin-bottom: 3px;
+  margin-bottom: 2px;
 }
 
 .since {
-  font-size: 16px;
+  font-size: 15px;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.02em;
 }
 
 .scene {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--text-past-dim);
-  margin-bottom: 2px;
+  margin-bottom: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+/* nowrap folds the action's own line breaks into one line, which the ellipsis then clips. */
 .action {
-  font-size: 18px;
-  line-height: 1.1;
-  text-wrap: pretty;
-  white-space: pre-wrap;
-}
-
-.groups {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  font-size: 17px;
+  line-height: 1.15;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .tc {

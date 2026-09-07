@@ -1,6 +1,5 @@
 import { ms } from "../lib/parse";
 import type { ParsedCue } from "../types";
-import { PersonGroupInline } from "./PersonGroupInline";
 import styles from "./PrevCueRow.module.css";
 
 interface Props {
@@ -13,25 +12,17 @@ interface Props {
 export function PrevCueRow({ cue, t, onJump }: Props) {
   if (!cue) return null;
 
+  const action = cue.action || "watch only";
+
   return (
-    <div className={styles.row} onClick={() => onJump(cue.t)}>
+    <div className={styles.row} onClick={() => onJump(cue.t)} title={action}>
       <div>
         <div className={styles.label}>JUST FIRED</div>
         <div className={styles.since}>−{ms(t - cue.t)}</div>
       </div>
-      <div>
+      <div className={styles.cell}>
         <div className={styles.scene}>{cue.scene}</div>
-        <div className={styles.action}>{cue.action || "watch only"}</div>
-      </div>
-      <div className={styles.groups}>
-        {cue.groups.map((g, i) => (
-          <PersonGroupInline
-            group={g}
-            headerColor="var(--text-past-dim)"
-            dotOpacity={0.45}
-            key={i}
-          />
-        ))}
+        <div className={styles.action}>{action}</div>
       </div>
       <div className={styles.tc}>{cue.time}</div>
     </div>

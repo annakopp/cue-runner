@@ -10,6 +10,7 @@ interface Props {
   playing: boolean;
   waiting: boolean;
   firstTime: string | null;
+  onDone: () => void;
 }
 
 /**
@@ -38,6 +39,7 @@ export function GoCard({
   playing,
   waiting,
   firstTime,
+  onDone,
 }: Props) {
   if (!current) {
     return (
@@ -66,6 +68,10 @@ export function GoCard({
           <div className={styles.headerLabel}>GO — RUNNING NOW</div>
           <div className={styles.headerTime}>{current.time}</div>
           <div className={styles.headerElapsed}>+{elapsed}</div>
+          <div className={styles.headerSpacer} />
+          <div className={styles.doneBtn} onClick={onDone}>
+            DONE
+          </div>
         </div>
         <div className={styles.body}>
           <div>

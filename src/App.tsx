@@ -40,6 +40,7 @@ export default function App() {
         playing={runner.playing}
         waiting={runner.waitingForCue}
         firstTime={runner.cues[0]?.time ?? null}
+        onDone={runner.markDone}
       />
       <StandbyStrip upcoming={runner.upcoming} onJump={runner.jumpTo} />
       <CueList

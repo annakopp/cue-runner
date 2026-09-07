@@ -16,6 +16,9 @@ export function useCueRunner(cueList: CueList) {
   const [t, setT] = useState(() => loadClockState()?.t ?? 0);
   const [playing, setPlaying] = useState(false);
   const [syncText, setSyncText] = useState(() => hms(loadClockState()?.t ?? 0));
+  // Index of a cue the operator has marked DONE, so it leaves the GO card without waiting out its
+  // window. Cleared whenever the clock is moved by hand, so scrubbing back shows the cue again.
+  const [doneIndex, setDoneIndex] = useState<number | null>(null);
 
   const listRef = useRef<HTMLDivElement | null>(null);
   const rowRefs = useRef<Map<number, HTMLDivElement>>(new Map());
@@ -93,6 +96,7 @@ export function useCueRunner(cueList: CueList) {
   }, [currentIndex, scrollToNow]);
 
   const nudge = useCallback((delta: number) => {
+    setDoneIndex(null);
     setT((prev) => {
       const next = Math.max(0, prev + delta);
       setSyncText(hms(next));
@@ -101,6 +105,7 @@ export function useCueRunner(cueList: CueList) {
   }, []);
 
   const step = useCallback((dir: 1 | -1) => {
+    setDoneIndex(null);
     const { cues, currentIndex, t } = latest.current;
     let target: ParsedCue | undefined;
     if (dir > 0) {
@@ -117,13 +122,18 @@ export function useCueRunner(cueList: CueList) {
   }, []);
 
   const jumpTo = useCallback((seconds: number) => {
+    setDoneIndex(null);
     setT(seconds);
     setSyncText(hms(seconds));
   }, []);
 
   const toggle = useCallback(() => setPlaying((p) => !p), []);
 
+  /** Clear the current cue off the GO card now, without waiting out its window. */
+  const markDone = useCallback(() => setDoneIndex(latest.current.currentIndex), []);
+
   const reset = useCallback(() => {
+    setDoneIndex(null);
     setT(0);
     setPlaying(false);
     setSyncText("00:00:00");
@@ -131,6 +141,7 @@ export function useCueRunner(cueList: CueList) {
   }, []);
 
   const onSyncChange = useCallback((value: string) => {
+    setDoneIndex(null);
     setSyncText(value);
     const parsed = secs(value);
     if (parsed !== null) setT(parsed);
@@ -160,9 +171,12 @@ export function useCueRunner(cueList: CueList) {
 
   // A fired cue holds the GO card only briefly — long enough to act on, not so long that a stale
   // instruction reads as something still to do. A cue with extra info is the exception: that text
-  // is there to be read from, so it stays up until the next cue takes over.
+  // is there to be read from, so it stays up until the next cue takes over. DONE overrides both.
+  const markedDone = currentIndex >= 0 && doneIndex === currentIndex;
   const goCue =
-    current && (current.extra || t - current.t <= GO_LINGER_SECONDS) ? current : null;
+    current && !markedDone && (current.extra || t - current.t <= GO_LINGER_SECONDS)
+      ? current
+      : null;
   const waitingForCue = !!current && !goCue;
 
   // The most recent cue that isn't the one on the GO card — kept on screen, grayed, to refer back
@@ -218,6 +232,7 @@ export function useCueRunner(cueList: CueList) {
     registerRow,
     scrollToNow,
     toggle,
+    markDone,
     nudge,
     reset,
     step,
