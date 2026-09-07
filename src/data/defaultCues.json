@@ -286,9 +286,9 @@
     },
     {
       "timestamp": "00:35:42",
-      "action": "rustle venik",
+      "action": "rustle kale",
       "scene": "discovering sam",
-      "item": "🍃 venik",
+      "item": "🥬 kale",
       "category": "furniture & fruit props",
       "who": "Matt"
     },
@@ -358,9 +358,9 @@
     },
     {
       "timestamp": "00:44:07",
-      "action": "drag leaves (venik) across face for 10 seconds",
+      "action": "drag leaves (kale) across face for 10 seconds",
       "scene": "running through the corn field",
-      "item": "🍃 venik",
+      "item": "🥬 kale",
       "category": "furniture & fruit props",
       "who": "Matt"
     },
@@ -592,9 +592,9 @@
     },
     {
       "timestamp": "01:10:47",
-      "action": "Scratch Sid’s face with venik",
+      "action": "Scratch Sid’s face with kale",
       "scene": "Arwen’s cheek scratched by tree",
-      "item": "🍃 venik",
+      "item": "🥬 kale",
       "category": "furniture & fruit props",
       "who": "Matt"
     },
@@ -818,7 +818,7 @@
       "timestamp": "01:39:36",
       "action": "Ruffle sid’s hair",
       "scene": "Boromir ruffles frodo’s hair",
-      "item": "🍃 venik",
+      "item": "🥬 kale",
       "category": "furniture & fruit props",
       "who": "Matt"
     },
