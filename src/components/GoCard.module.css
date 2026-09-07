@@ -132,15 +132,21 @@
   white-space: pre-wrap;
 }
 
+/* Blocks flow across and wrap rather than stacking. Stacked, three of them made the card ~400px
+   tall while the whole left half sat empty under the action; across, the same content is ~85px
+   shorter and the height that frees up goes to the cue list. The max-width forces a wrap after
+   two so the groups can never crowd the action out of its column. */
 .groups {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
   gap: 9px;
-  min-width: 270px;
-  max-width: 400px;
+  max-width: 570px;
 }
 
 .block {
+  flex: 0 0 auto;
+  width: 280px;
   background: var(--bg-block);
   border: 1px solid var(--border-block);
 }
@@ -148,7 +154,8 @@
 .blockHeader {
   display: flex;
   align-items: center;
-  gap: 9px;
+  flex-wrap: wrap;
+  gap: 4px 9px;
   padding: 9px 14px;
   border-bottom: 1px solid var(--border-block);
 }
