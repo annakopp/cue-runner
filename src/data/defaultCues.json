@@ -161,8 +161,8 @@
       "action": "serve first cup of tea",
       "scene": "bilbo serves tea",
       "item": "🍵 tea",
-      "category": "food & drink",
-      "who": "Anna Green"
+      "category": "wet & dark",
+      "who": "Douglas Spangler"
     },
     {
       "timestamp": "00:15:14",
@@ -193,8 +193,8 @@
       "action": "bring beer",
       "scene": "party",
       "item": "🍺 beer in fancy mug",
-      "category": "food & drink",
-      "who": "Anna Green"
+      "category": "wet & dark",
+      "who": "Douglas Spangler"
     },
     {
       "timestamp": "00:17:56",
@@ -281,8 +281,8 @@
       "action": "refill teacups",
       "scene": "frodo serves tea",
       "item": "🍵 tea",
-      "category": "food & drink",
-      "who": "Anna Green"
+      "category": "wet & dark",
+      "who": "Douglas Spangler"
     },
     {
       "timestamp": "00:35:42",
@@ -426,8 +426,8 @@
       "action": "bring large beer",
       "scene": "\"it comes in pints”",
       "item": "🍺 beer in fancy mug",
-      "category": "food & drink",
-      "who": "Anna Green"
+      "category": "wet & dark",
+      "who": "Douglas Spangler"
     },
     {
       "timestamp": "00:53:37",
@@ -1125,8 +1125,24 @@
       "action": "Serve tea and lembas bread",
       "scene": "The fellowship regains their energy sitting next to a fire, after the canoes make landfall",
       "item": "🍵 tea, 🍞 lembas bread",
-      "category": "food & drink",
-      "who": "Anna Green"
+      "category": "wet & dark · food & drink",
+      "who": "Douglas Spangler · Anna Green",
+      "groups": [
+        {
+          "who": "Douglas Spangler",
+          "category": "wet & dark",
+          "items": [
+            "🍵 tea"
+          ]
+        },
+        {
+          "who": "Anna Green",
+          "category": "food & drink",
+          "items": [
+            "🍞 lembas bread"
+          ]
+        }
+      ]
     },
     {
       "timestamp": "02:32:52",
