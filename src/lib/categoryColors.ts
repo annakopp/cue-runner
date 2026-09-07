@@ -1,7 +1,7 @@
 // Keys are the category names as they read in Notion's Item Categories table, lowercased.
 // Rename a category there and it needs renaming here too, or it falls back to gray.
 export const CAT_COLORS: Record<string, string> = {
-  wet: "oklch(0.72 0.11 235)",
+  "wet & dark": "oklch(0.72 0.11 235)",
   "wind & fire": "oklch(0.82 0.12 75)",
   lighting: "oklch(0.9 0.16 105)",
   fighting: "oklch(0.7 0.16 25)",

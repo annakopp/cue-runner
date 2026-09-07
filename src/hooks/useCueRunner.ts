@@ -191,9 +191,15 @@ export function useCueRunner(defaultList: CueList) {
   const imminent = !!next && gap <= STANDBY_LEAD_SECONDS;
 
   // A fired cue holds the GO card only briefly — long enough to act on, not so long that a stale
-  // instruction reads as something still to do.
-  const goCue = current && t - current.t <= GO_LINGER_SECONDS ? current : null;
+  // instruction reads as something still to do. A cue with extra info is the exception: that text
+  // is there to be read from, so it stays up until the next cue takes over.
+  const goCue =
+    current && (current.extra || t - current.t <= GO_LINGER_SECONDS) ? current : null;
   const waitingForCue = !!current && !goCue;
+
+  // The most recent cue that isn't the one on the GO card — kept on screen, grayed, to refer back
+  // to. Once a cue clears off the GO card it moves down into this row rather than vanishing.
+  const previousCue = (goCue ? cues[currentIndex - 1] : cues[currentIndex]) ?? null;
 
   // The next few cues, each with its own countdown — the standby strip shows all of them.
   const upcoming = useMemo(
@@ -233,10 +239,12 @@ export function useCueRunner(defaultList: CueList) {
     currentIndex,
     current,
     goCue,
+    previousCue,
     waitingForCue,
     next,
     upcoming,
     elapsed: current ? ms(t - current.t) : "0:00",
+    elapsedSeconds: current ? t - current.t : 0,
     countdown: next ? ms(gap) : "—",
     imminent,
     listRef,

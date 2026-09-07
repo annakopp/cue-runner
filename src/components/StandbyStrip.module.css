@@ -19,6 +19,13 @@
   padding: 6px 26px clamp(7px, 1.2vh, 12px);
   color: var(--text-hi);
   align-items: start;
+  cursor: pointer;
+}
+
+/* Brightening rather than a background tint, so the hover reads the same on the calm strip and
+   the amber standby one. */
+.grid:hover {
+  filter: brightness(1.22);
 }
 
 /* Rows 2 and 3 — same columns, quieter and tighter than the one that's next. */

@@ -30,20 +30,26 @@ npm run lint    # oxlint
   (`HH:MM:SS`) to line up with the film's own timestamp.
 - **The minimap** under the transport is the whole show at a glance — one tick per cue, colored by
   category, dimmed once fired, with a playhead for where you are. Click anywhere on it to jump.
-- **GO** (top card) is the cue that just fired. It holds for six seconds and then clears to a gray
-  "waiting for next cue" — long enough to act on, short enough that a stale instruction never sits
-  there looking like something still to do.
-- A cue can carry **extra info** — reference text you need in hand the moment it fires, like a
-  speech to read aloud. It opens in its own panel on the right of the GO card, with the prop
-  blocks sliding left to make room. Cues without it keep the plain two-column layout.
+- **GO** (top card) is the cue that just fired. It holds for six seconds — a gray bar along the
+  bottom drains over that window so its going is something you see coming — and then clears to a
+  gray "waiting for next cue", short enough that a stale instruction never sits there looking like
+  something still to do.
+- The **JUST FIRED** row above it keeps the last cue on screen in gray to refer back to. When a cue
+  clears off the GO card it moves down into this row rather than vanishing.
+- A cue can carry **extra info** — reference text you need in hand while it runs, like a speech to
+  read aloud. It sits in a panel on the right of the GO card, with the prop blocks in the middle.
+  The panel is always there (reading "none" when a cue has nothing) so the card doesn't reflow
+  from cue to cue. **A cue with extra info ignores the six-second clear** and stays up until the
+  next cue takes over — you can't read from a panel that's already gone.
 - The **NEXT UP / STANDBY** strip below it shows the next three cues with a countdown each (it
-  flips to amber "STANDBY" inside the last 30 seconds).
+  flips to amber "STANDBY" inside the last 30 seconds). Those rows are clickable too.
 - The cue list picks up where the standby strip leaves off — it's everything still to come *after*
   the three on standby, so nothing on screen is shown twice and the list is only ever the road
   ahead. The left column counts down to each cue; the absolute timecode sits in the right-hand
   **TC** column. Click any row to jump the clock to it.
-- To get back to something already fired, scrub with the minimap, `←`/`→`, `J`/`K`, or SYNC TO FILM
-  — the list itself doesn't carry past cues.
+- Every row on screen — JUST FIRED, the standby ones, the list — jumps the clock when clicked. To
+  get further back than the last cue, scrub with the minimap, `←`/`→`, `J`/`K`, or SYNC TO FILM;
+  the list itself doesn't carry past cues.
 - Keyboard: `Space` run/hold, `←`/`→` ±5s, `J`/`K` previous/next cue.
 - Your clock position is saved to this browser automatically, so a refresh mid-movie doesn't lose
   your place.
@@ -78,9 +84,10 @@ or keep it as a backup.
 }
 ```
 
-An optional `"extra"` string on any cue is reference text for the GO card's side panel. Line breaks
-in `action` and `extra` are preserved (runs of blank lines collapse to one), so a cue made of
-several sub-actions reads as several lines.
+An optional `"extra"` string on any cue is reference text for the GO card's side panel — and it
+also makes that cue hold the GO card until the next one fires, rather than clearing after
+`GO_LINGER_SECONDS`. Line breaks in `action` and `extra` are preserved (runs of blank lines
+collapse to one), so a cue made of several sub-actions reads as several lines.
 
 Cues must be in chronological order by `timestamp`. Any of `action`, `scene`, `item`, `category`,
 `who` may be blank — a blank `action` renders as a watch-only cue with no instruction.

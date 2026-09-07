@@ -1,8 +1,33 @@
 .card {
+  position: relative;
   padding: clamp(10px, 2vh, 22px) 26px;
   border-bottom: 1px solid var(--border);
   background: var(--bg-card);
   flex: none;
+}
+
+/* Drains left-to-right over the cue's remaining time on the card, so its disappearance is
+   something you can see coming rather than a blink. Cues that hold until the next cue get none. */
+.progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  background: var(--text-past);
+  transform-origin: left center;
+  animation-name: drain;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes drain {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
 }
 
 .header {
@@ -27,24 +52,20 @@
   color: var(--go);
 }
 
+/* The note keeps its column whether or not the cue has one, so the card doesn't reflow from cue
+   to cue — the prop blocks sit in the middle and the note takes the right edge either way. */
 .body {
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 32px;
-  align-items: start;
-  margin-top: clamp(6px, 1.4vh, 14px);
-}
-
-/* With reference text to show, the items block slides left and the note takes the right edge. */
-.bodyWithExtra {
   grid-template-columns: 1fr auto auto;
   gap: 24px;
+  align-items: start;
+  margin-top: clamp(6px, 1.4vh, 14px);
 }
 
 .extra {
   background: var(--bg-block);
   border: 1px solid var(--border-block);
-  min-width: 300px;
+  min-width: 280px;
   max-width: 420px;
 }
 
@@ -65,6 +86,12 @@
   color: var(--text-hi);
   white-space: pre-wrap;
   text-wrap: pretty;
+}
+
+.extraNone {
+  composes: extraBody;
+  color: var(--text-past);
+  font-weight: 400;
 }
 
 .scene {

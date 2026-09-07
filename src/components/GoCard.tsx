@@ -1,14 +1,44 @@
+import { useState } from "react";
+import { GO_LINGER_SECONDS } from "../lib/config";
 import type { ParsedCue } from "../types";
 import styles from "./GoCard.module.css";
 
 interface Props {
   current: ParsedCue | null;
   elapsed: string;
+  elapsedSeconds: number;
+  playing: boolean;
   waiting: boolean;
   firstTime: string | null;
 }
 
-export function GoCard({ current, elapsed, waiting, firstTime }: Props) {
+/**
+ * The draining bar under a cue. Remounted per cue by its key, so it captures how far into the
+ * window the cue already is (non-zero when you scrub into the middle of one) and starts there
+ * rather than restarting on every clock tick.
+ */
+function GoProgress({ startElapsed, playing }: { startElapsed: number; playing: boolean }) {
+  const [offset] = useState(() => Math.min(Math.max(startElapsed, 0), GO_LINGER_SECONDS));
+  return (
+    <div
+      className={styles.progress}
+      style={{
+        animationDuration: `${GO_LINGER_SECONDS}s`,
+        animationDelay: `-${offset}s`,
+        animationPlayState: playing ? "running" : "paused",
+      }}
+    />
+  );
+}
+
+export function GoCard({
+  current,
+  elapsed,
+  elapsedSeconds,
+  playing,
+  waiting,
+  firstTime,
+}: Props) {
   if (!current) {
     return (
       <div className={styles.card}>
@@ -37,7 +67,7 @@ export function GoCard({ current, elapsed, waiting, firstTime }: Props) {
           <div className={styles.headerTime}>{current.time}</div>
           <div className={styles.headerElapsed}>+{elapsed}</div>
         </div>
-        <div className={current.extra ? `${styles.body} ${styles.bodyWithExtra}` : styles.body}>
+        <div className={styles.body}>
           <div>
             <div className={styles.scene}>{current.scene}</div>
             <div className={styles.action} style={{ fontSize: size }}>
@@ -63,14 +93,19 @@ export function GoCard({ current, elapsed, waiting, firstTime }: Props) {
               </div>
             ))}
           </div>
-          {current.extra && (
-            <div className={styles.extra}>
-              <div className={styles.extraHeader}>EXTRA INFO</div>
+          <div className={styles.extra}>
+            <div className={styles.extraHeader}>EXTRA INFO</div>
+            {current.extra ? (
               <div className={styles.extraBody}>{current.extra}</div>
-            </div>
-          )}
+            ) : (
+              <div className={styles.extraNone}>none</div>
+            )}
+          </div>
         </div>
       </div>
+      {!current.extra && (
+        <GoProgress key={current.index} startElapsed={elapsedSeconds} playing={playing} />
+      )}
     </div>
   );
 }

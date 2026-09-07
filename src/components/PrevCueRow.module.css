@@ -1,0 +1,55 @@
+.row {
+  flex: none;
+  display: grid;
+  grid-template-columns: 104px 1fr 300px 92px;
+  gap: 18px;
+  padding: clamp(5px, 0.9vh, 9px) 26px clamp(6px, 1vh, 10px);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-page);
+  color: var(--text-past);
+  align-items: start;
+  cursor: pointer;
+}
+
+.row:hover {
+  filter: brightness(1.35);
+}
+
+.label {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--text-past-dim);
+  margin-bottom: 3px;
+}
+
+.since {
+  font-size: 16px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+.scene {
+  font-size: 13px;
+  color: var(--text-past-dim);
+  margin-bottom: 2px;
+}
+
+.action {
+  font-size: 18px;
+  line-height: 1.1;
+  text-wrap: pretty;
+  white-space: pre-wrap;
+}
+
+.groups {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tc {
+  font-size: 13px;
+  color: var(--text-past-dim);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}

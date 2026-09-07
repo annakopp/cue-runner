@@ -10,9 +10,10 @@ export interface UpcomingCue {
 
 interface Props {
   upcoming: UpcomingCue[];
+  onJump: (t: number) => void;
 }
 
-export function StandbyStrip({ upcoming }: Props) {
+export function StandbyStrip({ upcoming, onJump }: Props) {
   if (!upcoming.length) return null;
 
   const imminent = upcoming[0].imminent;
@@ -31,6 +32,7 @@ export function StandbyStrip({ upcoming }: Props) {
       {upcoming.map(({ cue, countdown, imminent: cueImminent }, i) => (
         <div
           className={i === 0 ? styles.grid : `${styles.grid} ${styles.secondary}`}
+          onClick={() => onJump(cue.t)}
           key={cue.index}
         >
           <div>

@@ -3,7 +3,121 @@
   "runtime": "02:58:00",
   "cues": [
     {
-      "timestamp": "00:08:45",
+      "timestamp": "00:00:30",
+      "action": "run fingers over shoulders",
+      "scene": "whispering intro right before “the world is changed”",
+      "item": "✋ hand",
+      "category": "human",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "00:01:06",
+      "action": "loud fan in sid’s face",
+      "scene": "intro ring forging",
+      "item": "💨 loud fan",
+      "category": "wind & fire",
+      "who": "Andrey"
+    },
+    {
+      "timestamp": "00:01:53",
+      "action": "orange light to mimic mt doom",
+      "scene": "zoom out on mt doom",
+      "item": "🔦 color changing flashlight",
+      "category": "lighting",
+      "who": "Matt"
+    },
+    {
+      "timestamp": "00:01:59",
+      "action": "loud fan in sid’s face",
+      "scene": "fires of mt doom",
+      "item": "💨 loud fan",
+      "category": "wind & fire",
+      "who": "Andrey"
+    },
+    {
+      "timestamp": "00:02:05",
+      "action": "give sid the ring to hold for just a second",
+      "scene": "ring spinning on screen",
+      "item": "💍 ring (magnetable)",
+      "category": "ring",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "00:02:24",
+      "action": "gentle rumbles for 10s",
+      "scene": "armies gathering",
+      "extra": "note: the intro is gentle on purpose, we don’t want to reveal swords, etc just yet. only set a small expectation of what’s to come",
+      "item": "🪑 chair",
+      "category": "furniture & fruit props",
+      "who": "Matt"
+    },
+    {
+      "timestamp": "00:02:29",
+      "action": "shoot ONE arrow only",
+      "scene": "armies with bows",
+      "extra": "note: the intro is gentle on purpose, we don’t want to reveal swords, etc just yet. only set a small expectation of what’s to come",
+      "item": "🔫 nerf gun",
+      "category": "human",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "00:03:15",
+      "action": "gentle rumbles continue",
+      "scene": "armies fighting",
+      "item": "🪑 chair",
+      "category": "furniture & fruit props",
+      "who": "Matt"
+    },
+    {
+      "timestamp": "00:04:00",
+      "action": "throw ring on the ground next to sid (pick it up right away)",
+      "scene": "sauron’s finger is cut off",
+      "item": "💍 ring (magnetable)",
+      "category": "ring",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "00:04:51",
+      "action": "hang ring on sid’s neck",
+      "scene": "isildur riding horse w/ ring",
+      "item": "💍 ring (magnetable), 📿 necklace",
+      "category": "ring",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "00:05:06",
+      "action": "take ring off",
+      "scene": "ring floats to bottom of river",
+      "item": "💍 ring (magnetable)",
+      "category": "ring",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "00:05:41",
+      "action": "small mist",
+      "scene": "misty mountains",
+      "item": "💧 spray bottle",
+      "category": "wet & dark",
+      "who": "Douglas Spangler"
+    },
+    {
+      "timestamp": "00:06:00",
+      "action": "run fingers over shoulders/neck creeply",
+      "scene": "gollum talks to ring",
+      "item": "✋ hand",
+      "category": "human",
+      "who": "Anna Green"
+    },
+    {
+      "timestamp": "00:07:35",
+      "action": "spray woodsy perfume",
+      "scene": "frodo reads in forest",
+      "item": "🧴 perfume",
+      "category": "wet & dark",
+      "who": "Douglas Spangler"
+    },
+    {
+      "timestamp": "00:08:31",
       "action": "shake chair",
       "scene": "Frodo jumps in wagon",
       "item": "🪑 chair",
@@ -11,15 +125,15 @@
       "who": "Matt"
     },
     {
-      "timestamp": "00:10:00",
+      "timestamp": "00:09:21",
       "action": "spray woodsy perfume",
-      "scene": "shire vibes",
+      "scene": "shire vibes (camera zooming out on the shire)",
       "item": "🧴 perfume",
-      "category": "wet",
+      "category": "wet & dark",
       "who": "Douglas Spangler"
     },
     {
-      "timestamp": "00:10:56",
+      "timestamp": "00:10:42",
       "action": "light sparkler",
       "scene": "kid fireworks",
       "item": "✨ sparkler",
@@ -27,7 +141,7 @@
       "who": "Andrey"
     },
     {
-      "timestamp": "00:12:57",
+      "timestamp": "00:12:42",
       "action": "smack (gently) w/ pool noodle",
       "scene": "gandalf hits chandelier",
       "item": "〰️ pool noodle",
@@ -35,7 +149,7 @@
       "who": "Ben"
     },
     {
-      "timestamp": "00:13:04",
+      "timestamp": "00:12:47",
       "action": "smack (harder) w/ pool noodle",
       "scene": "gandalf hits head",
       "item": "〰️ pool noodle",
@@ -43,15 +157,7 @@
       "who": "Ben"
     },
     {
-      "timestamp": "00:13:32",
-      "action": "serve sponge cake",
-      "scene": "spoge cake",
-      "item": "🍰 sponge cake",
-      "category": "food & drink",
-      "who": "Anna Green"
-    },
-    {
-      "timestamp": "00:14:07",
+      "timestamp": "00:14:00",
       "action": "serve first cup of tea",
       "scene": "bilbo serves tea",
       "item": "🍵 tea",
@@ -59,7 +165,7 @@
       "who": "Anna Green"
     },
     {
-      "timestamp": "00:15:33",
+      "timestamp": "00:15:14",
       "action": "light and pass joint, one puff then take back",
       "scene": "bilbo & gandalf smoking",
       "item": "🌿 weed",
@@ -67,23 +173,23 @@
       "who": "Andrey"
     },
     {
-      "timestamp": "00:16:02",
+      "timestamp": "00:15:41",
       "action": "light sparkler",
-      "scene": "sparkles rain down",
+      "scene": "fireworks rain down",
       "item": "✨ sparkler",
       "category": "wind & fire",
       "who": "Andrey"
     },
     {
-      "timestamp": "00:16:04",
-      "action": "serve birthday cake",
+      "timestamp": "00:15:53",
+      "action": "serve birthday cake and have sid blow out candles",
       "scene": "birthday cake",
       "item": "🎂 birthday cake",
       "category": "food & drink",
       "who": "Anna Green"
     },
     {
-      "timestamp": "00:16:50",
+      "timestamp": "00:16:03",
       "action": "bring beer",
       "scene": "party",
       "item": "🍺 beer in fancy mug",
@@ -91,63 +197,71 @@
       "who": "Anna Green"
     },
     {
-      "timestamp": "00:18:12",
+      "timestamp": "00:17:56",
       "action": "drag blanket over head",
-      "scene": "fireworks dragon",
+      "scene": "fireworks dragon flies over frodo and biblo",
       "item": "🧣 blanket",
       "category": "furniture & fruit props",
       "who": "Matt"
     },
     {
-      "timestamp": "00:20:16",
-      "action": "give sid the one ring",
+      "timestamp": "00:20:00",
+      "action": "put ring on sid’s pinky (so it fits)",
       "scene": "bilbo puts on ring & dissapears",
       "item": "💍 ring (magnetable)",
       "category": "ring",
       "who": "Anna Green"
     },
     {
-      "timestamp": "00:20:32",
-      "action": "sneakily open door",
-      "scene": "invisible bilbo comes home",
-      "item": "🚪 door",
-      "category": "furniture & fruit props",
-      "who": "Matt"
+      "timestamp": "00:20:20",
+      "action": "smack chair & take ring off",
+      "scene": "invisible bilbo comes home and door shuts",
+      "item": "🪑 chair, 💍 ring (magnetable)",
+      "category": "furniture & fruit props · ring",
+      "who": "Matt · Anna Green",
+      "groups": [
+        {
+          "who": "Matt",
+          "category": "furniture & fruit props",
+          "items": [
+            "🪑 chair"
+          ]
+        },
+        {
+          "who": "Anna Green",
+          "category": "ring",
+          "items": [
+            "💍 ring (magnetable)"
+          ]
+        }
+      ]
     },
     {
-      "timestamp": "00:22:38",
-      "action": "",
+      "timestamp": "00:22:21",
+      "action": "darken room with cape over window",
       "scene": "tall/scary/shadow gandalf",
-      "item": "",
-      "category": "",
-      "who": ""
+      "item": "🥋 black robes (6?)",
+      "category": "wet & dark",
+      "who": "Douglas Spangler"
     },
     {
-      "timestamp": "00:26:13",
-      "action": "Ask sid to put ring in envelope",
+      "timestamp": "00:25:57",
+      "action": "give ring to sid and ask him to put ring in envelope",
       "scene": "frodo puts ring in envelope",
       "item": "✉️ envelope, 💍 ring (magnetable)",
       "category": "ring",
       "who": "Anna Green"
     },
     {
-      "timestamp": "00:28:11",
+      "timestamp": "00:27:56",
       "action": "spray with spray bottle",
       "scene": "book dust",
       "item": "💧 spray bottle",
-      "category": "wet",
+      "category": "wet & dark",
       "who": "Douglas Spangler"
     },
     {
-      "timestamp": "00:28:27",
-      "action": "blow with fan",
-      "scene": "spooky horse rider (forget name) whispers “shire, baggins”",
-      "item": "🌬 small electric fan",
-      "category": "wind & fire",
-      "who": "Andrey"
-    },
-    {
-      "timestamp": "00:30:14",
+      "timestamp": "00:29:58",
       "action": "put arm on shoulder",
       "scene": "gandalf startles frodo",
       "item": "✋ hand",
@@ -155,23 +269,15 @@
       "who": "Anna Green"
     },
     {
-      "timestamp": "00:31:00",
-      "action": "Give ring back to sid (as a necklace?)",
+      "timestamp": "00:30:35",
+      "action": "Give ring back to sid",
       "scene": "frodo gets ring",
       "item": "💍 ring (magnetable)",
       "category": "ring",
       "who": "Anna Green"
     },
     {
-      "timestamp": "00:31:45",
-      "action": "slam door",
-      "scene": "all doors slam",
-      "item": "🚪 door",
-      "category": "furniture & fruit props",
-      "who": "Matt"
-    },
-    {
-      "timestamp": "00:31:49",
+      "timestamp": "00:31:31",
       "action": "refill teacups",
       "scene": "frodo serves tea",
       "item": "🍵 tea",
@@ -179,18 +285,10 @@
       "who": "Anna Green"
     },
     {
-      "timestamp": "00:33:45",
-      "action": "pinch sid",
-      "scene": "???",
-      "item": "✋ hand",
-      "category": "human",
-      "who": "Anna Green"
-    },
-    {
-      "timestamp": "00:35:40",
-      "action": "rustle kale",
+      "timestamp": "00:35:42",
+      "action": "rustle venik",
       "scene": "discovering sam",
-      "item": "🥬 kale",
+      "item": "🍃 venik",
       "category": "furniture & fruit props",
       "who": "Matt"
     },
@@ -228,7 +326,7 @@
     },
     {
       "timestamp": "00:42:12",
-      "action": "slap back somehow",
+      "action": "slap back with pool noodle",
       "scene": "saruman throws gandalf to the wall",
       "item": "〰️ pool noodle",
       "category": "fighting",
@@ -268,9 +366,9 @@
     },
     {
       "timestamp": "00:44:07",
-      "action": "drag leaves (kale) across face for 10 seconds",
+      "action": "drag leaves (venik) across face for 10 seconds",
       "scene": "running through the corn field",
-      "item": "🥬 kale",
+      "item": "🍃 venik",
       "category": "furniture & fruit props",
       "who": "Matt"
     },
@@ -300,8 +398,8 @@
     },
     {
       "timestamp": "00:44:45",
-      "action": "carrot snack",
-      "scene": "",
+      "action": "serve carrot snack",
+      "scene": "pippin sits on broken carrot",
       "item": "🥕 carrot",
       "category": "food & drink",
       "who": "Anna Green"
@@ -317,7 +415,7 @@
     {
       "timestamp": "00:46:15",
       "action": "serve oreo dirt cup",
-      "scene": "",
+      "scene": "bugs crawling",
       "item": "🍫 oreo dirt cup",
       "category": "food & drink",
       "who": "Anna Green"
@@ -327,7 +425,7 @@
       "action": "spritz with water",
       "scene": "raining in bree",
       "item": "💧 spray bottle",
-      "category": "wet",
+      "category": "wet & dark",
       "who": "Douglas Spangler"
     },
     {
@@ -348,11 +446,28 @@
     },
     {
       "timestamp": "00:53:49",
-      "action": "fan in face",
+      "action": "loud fan in face, turn lighter on, turn on orange light",
       "scene": "in the ring world",
-      "item": "🌬 small electric fan",
-      "category": "wind & fire",
-      "who": "Andrey"
+      "item": "💨 loud fan, 🔥 lighter, 🔦 color changing flashlight",
+      "category": "wind & fire · lighting",
+      "who": "Andrey · Matt",
+      "groups": [
+        {
+          "who": "Andrey",
+          "category": "wind & fire",
+          "items": [
+            "💨 loud fan",
+            "🔥 lighter"
+          ]
+        },
+        {
+          "who": "Matt",
+          "category": "lighting",
+          "items": [
+            "🔦 color changing flashlight"
+          ]
+        }
+      ]
     },
     {
       "timestamp": "00:54:19",
@@ -364,9 +479,9 @@
     },
     {
       "timestamp": "00:54:40",
-      "action": "put out candle",
-      "scene": "",
-      "item": "🕯️ candle",
+      "action": "turn lighter on and off",
+      "scene": "aragorn puts out candle",
+      "item": "🔥 lighter",
       "category": "wind & fire",
       "who": "Andrey"
     },
@@ -391,7 +506,7 @@
       "action": "spritz water",
       "scene": "raining on top of isengard",
       "item": "💧 spray bottle",
-      "category": "wet",
+      "category": "wet & dark",
       "who": "Douglas Spangler"
     },
     {
@@ -415,7 +530,7 @@
       "action": "ice pack on hand",
       "scene": "nazgul reaches for ring",
       "item": "🧊 ice pack",
-      "category": "wet",
+      "category": "wet & dark",
       "who": "Douglas Spangler"
     },
     {
@@ -447,7 +562,7 @@
       "action": "put slime on his face",
       "scene": "birth of uruk hai",
       "item": "🫧 slime",
-      "category": "wet",
+      "category": "wet & dark",
       "who": "Douglas Spangler"
     },
     {
@@ -486,7 +601,7 @@
       "timestamp": "01:10:47",
       "action": "Scratch Sid’s face with kale",
       "scene": "Arwen’s cheek scratched by tree",
-      "item": "🥬 kale",
+      "item": "🍃 venik",
       "category": "furniture & fruit props",
       "who": "Matt"
     },
@@ -495,7 +610,7 @@
       "action": "Spray water in Sid’s face",
       "scene": "Ringwraiths get effed up by the river horses",
       "item": "💧 spray bottle",
-      "category": "wet",
+      "category": "wet & dark",
       "who": "Douglas Spangler"
     },
     {
@@ -503,7 +618,7 @@
       "action": "Hug sid and maybe a light spray with spray bottle",
       "scene": "Arwen hugs Frodo and cries a single tear",
       "item": "✋ hand, 💧 spray bottle",
-      "category": "human · wet",
+      "category": "human · wet & dark",
       "who": "Anna Green · Douglas Spangler",
       "groups": [
         {
@@ -515,7 +630,7 @@
         },
         {
           "who": "Douglas Spangler",
-          "category": "wet",
+          "category": "wet & dark",
           "items": [
             "💧 spray bottle"
           ]
@@ -532,7 +647,7 @@
     },
     {
       "timestamp": "01:15:16",
-      "action": "Push sid off chair",
+      "action": "ask sid if u can push him off chair and do it",
       "scene": "Gandalf jumps off tower of Orthanc",
       "item": "🪑 chair",
       "category": "furniture & fruit props",
@@ -540,7 +655,7 @@
     },
     {
       "timestamp": "01:15:19",
-      "action": "Put sid back on chair, maybe rock it back and forth",
+      "action": "Put sid back on chair, rock it back and forth",
       "scene": "Eagle catches Gandalf, flies away",
       "item": "🪑 chair",
       "category": "furniture & fruit props",
@@ -556,7 +671,7 @@
     },
     {
       "timestamp": "01:23:28",
-      "action": "Pinch sid’s finger?",
+      "action": "Pinch sid’s finger",
       "scene": "Boromir cuts his finger on the shards of narsil",
       "item": "✋ hand",
       "category": "human",
@@ -564,7 +679,7 @@
     },
     {
       "timestamp": "01:25:59",
-      "action": "Give sid a necklace?",
+      "action": "Give sid a necklace",
       "scene": "Arwen gives Aragorn necklace",
       "item": "📿 necklace",
       "category": "ring",
@@ -692,7 +807,7 @@
     },
     {
       "timestamp": "01:38:25",
-      "action": "Turn fan on or turn ac up",
+      "action": "Turn fan on",
       "scene": "Fellowship in the mountains",
       "item": "🌬 small electric fan",
       "category": "wind & fire",
@@ -703,14 +818,14 @@
       "action": "Ice pack on sid’s neck for 5 seconds",
       "scene": "Frodo falls in snow",
       "item": "🧊 ice pack",
-      "category": "wet",
+      "category": "wet & dark",
       "who": "Douglas Spangler"
     },
     {
       "timestamp": "01:39:36",
       "action": "Ruffle sid’s hair",
       "scene": "Boromir ruffles frodo’s hair",
-      "item": "🥬 kale",
+      "item": "🍃 venik",
       "category": "furniture & fruit props",
       "who": "Matt"
     },
@@ -732,10 +847,10 @@
     },
     {
       "timestamp": "01:42:00",
-      "action": "Blow cold air at face",
+      "action": "Blow air and mist at face, place ice pack on neck",
       "scene": "Fellowship trek through mountains",
-      "item": "🌬 small electric fan, 💧 spray bottle",
-      "category": "wind & fire · wet",
+      "item": "🌬 small electric fan, 💧 spray bottle, 🧊 ice pack",
+      "category": "wind & fire · wet & dark",
       "who": "Andrey · Douglas Spangler",
       "groups": [
         {
@@ -747,9 +862,10 @@
         },
         {
           "who": "Douglas Spangler",
-          "category": "wet",
+          "category": "wet & dark",
           "items": [
-            "💧 spray bottle"
+            "💧 spray bottle",
+            "🧊 ice pack"
           ]
         }
       ]
@@ -767,7 +883,7 @@
       "action": "Spray water",
       "scene": "Creature attacks Frodo",
       "item": "💧 spray bottle",
-      "category": "wet",
+      "category": "wet & dark",
       "who": "Douglas Spangler"
     },
     {
@@ -780,10 +896,10 @@
     },
     {
       "timestamp": "01:51:30",
-      "action": "Spray 2nd perfume (TK smell)",
+      "action": "Spray woodsy perfume",
       "scene": "Gandalf finds clean air",
       "item": "🧴 perfume",
-      "category": "wet",
+      "category": "wet & dark",
       "who": "Douglas Spangler"
     },
     {
@@ -828,7 +944,7 @@
     },
     {
       "timestamp": "02:06:50",
-      "action": "Turn on space heater (lighter instead?)",
+      "action": "Turn on lighter",
       "scene": "They’re surrounded by flames",
       "item": "🔥 lighter",
       "category": "wind & fire",
@@ -836,7 +952,7 @@
     },
     {
       "timestamp": "02:06:58",
-      "action": "Blow hot air at face",
+      "action": "Blow fan in face, lighter stays on",
       "scene": "Balrog roars",
       "item": "🔥 lighter, 🌬 small electric fan",
       "category": "wind & fire",
@@ -844,7 +960,7 @@
     },
     {
       "timestamp": "02:07:58",
-      "action": "Blow hot air at face",
+      "action": "Blow fan in face, lighter stays on",
       "scene": "Balrog roars",
       "item": "🔥 lighter, 🌬 small electric fan",
       "category": "wind & fire",
@@ -860,7 +976,7 @@
     },
     {
       "timestamp": "02:09:26",
-      "action": "Blow cool air at face",
+      "action": "Blow air at face",
       "scene": "Fellowship exits moria",
       "item": "🌬 small electric fan",
       "category": "wind & fire",
@@ -871,20 +987,20 @@
       "action": "Sid wears voice cancelling headphones and we play the dialog \nB",
       "scene": "Galadriel speaks to Frodo telepathically",
       "item": "🎧 noise canceling headphones",
-      "category": "human",
-      "who": "Anna Green"
+      "category": "furniture & fruit props",
+      "who": "Matt"
     },
     {
       "timestamp": "02:18:30",
       "action": "Blow hand held electric fan in Sid’s face. Accompany with scent of pine.",
       "scene": "Frodo follows Galadriel through Lothlorien",
       "item": "🧴 perfume, 🌬 small electric fan",
-      "category": "wet · wind & fire",
+      "category": "wet & dark · wind & fire",
       "who": "Douglas Spangler · Andrey",
       "groups": [
         {
           "who": "Douglas Spangler",
-          "category": "wet",
+          "category": "wet & dark",
           "items": [
             "🧴 perfume"
           ]
@@ -929,8 +1045,8 @@
       "scene": "Galadriel’s dark queen speech",
       "extra": "In place of a Dark Lord, you would have a queen, not dark, but beautiful and terrible as the dawn! Treacherous as the sea! Stronger than the foundations of the earth! All shall love me and despair!",
       "item": "🔦 color changing flashlight, 🌬 small electric fan, 🎧 noise canceling headphones",
-      "category": "lighting · wind & fire · human",
-      "who": "Matt · Andrey · Anna Green",
+      "category": "lighting · wind & fire · furniture & fruit props",
+      "who": "Matt · Andrey · Matt",
       "groups": [
         {
           "who": "Matt",
@@ -947,8 +1063,8 @@
           ]
         },
         {
-          "who": "Anna Green",
-          "category": "human",
+          "who": "Matt",
+          "category": "furniture & fruit props",
           "items": [
             "🎧 noise canceling headphones"
           ]
@@ -968,12 +1084,12 @@
       "action": "Take helmet off. Spray light mist in Sid’s face",
       "scene": "The fellowship leaves Lothlorien on canoe",
       "item": "💧 spray bottle, 🪖 helmet",
-      "category": "wet · fighting",
+      "category": "wet & dark · fighting",
       "who": "Douglas Spangler · Ben",
       "groups": [
         {
           "who": "Douglas Spangler",
-          "category": "wet",
+          "category": "wet & dark",
           "items": [
             "💧 spray bottle"
           ]
@@ -992,12 +1108,12 @@
       "action": "Light mist and light fan blowing in Sid’s face",
       "scene": "The fellowship looks upon the argonath",
       "item": "💧 spray bottle, 🌬 small electric fan",
-      "category": "wet · wind & fire",
+      "category": "wet & dark · wind & fire",
       "who": "Douglas Spangler · Andrey",
       "groups": [
         {
           "who": "Douglas Spangler",
-          "category": "wet",
+          "category": "wet & dark",
           "items": [
             "💧 spray bottle"
           ]
@@ -1161,12 +1277,12 @@
       "action": "Ice pack on Sid’s hand. Anna G gets into the chair with Sid. It’s cramped. Heavy misting for all.",
       "scene": "Frodo saves Sam from drowning in Anduin",
       "item": "🧊 ice pack, 💧 spray bottle, 🧍 person",
-      "category": "wet · human",
+      "category": "wet & dark · human",
       "who": "Douglas Spangler · Anna Green",
       "groups": [
         {
           "who": "Douglas Spangler",
-          "category": "wet",
+          "category": "wet & dark",
           "items": [
             "🧊 ice pack",
             "💧 spray bottle"
@@ -1186,7 +1302,7 @@
       "action": "Sid and Anna G hug. More misting.",
       "scene": "Sam and Frodo hug after Sam tells Frodo he won’t leave him.",
       "item": "🧍 person, 💧 spray bottle",
-      "category": "human · wet",
+      "category": "human · wet & dark",
       "who": "Anna Green · Douglas Spangler",
       "groups": [
         {
@@ -1198,7 +1314,7 @@
         },
         {
           "who": "Douglas Spangler",
-          "category": "wet",
+          "category": "wet & dark",
           "items": [
             "💧 spray bottle"
           ]
