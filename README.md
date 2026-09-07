@@ -44,7 +44,9 @@ npm run lint    # oxlint
   from cue to cue. **A cue with extra info ignores that clear** and stays up until the next cue
   takes over — you can't read from a panel that's already gone.
 - The **NEXT UP / STANDBY** strip below it shows the next three cues with a countdown each (it
-  flips to amber "STANDBY" inside the last 30 seconds). Those rows are clickable too.
+  flips to amber "STANDBY" inside the last 30 seconds). Those rows are clickable too, and a cue
+  carrying extra info shows it there as a single clipped **NOTE** line — a standin who needs to be
+  in position, say, is no use read at GO time. Full text on the card (and on hover).
 - The cue list picks up where the standby strip leaves off — it's everything still to come *after*
   the three on standby, so nothing on screen is shown twice and the list is only ever the road
   ahead. The left column counts down to each cue; the absolute timecode sits in the right-hand

@@ -107,7 +107,8 @@ export function parseCue(c: RawCue, index: number): ParsedCue {
     // blank lines Notion's text areas tend to collect so the card doesn't double-space.
     action: (c.action || "").replace(/\n{2,}/g, "\n").trim(),
     scene: c.scene || "",
-    extra: c.extra || "",
+    // Authors tend to type "note: ..." — the UI already labels it, so drop the redundant prefix.
+    extra: (c.extra || "").replace(/^\s*note\s*[:\-–]\s*/i, "").trim(),
     groups: parseGroups(c, items),
   };
 }

@@ -44,9 +44,15 @@ export function StandbyStrip({ upcoming, onJump }: Props) {
               {countdown}
             </div>
           </div>
-          <div>
+          <div className={styles.cell}>
             <div className={styles.scene}>{cue.scene}</div>
             <div className={styles.action}>{cue.action || "watch only"}</div>
+            {cue.extra && (
+              <div className={styles.note} title={cue.extra}>
+                <span className={styles.noteLabel}>NOTE</span>
+                {cue.extra}
+              </div>
+            )}
           </div>
           <div className={styles.groups}>
             {cue.groups.map((g, gi) => (
